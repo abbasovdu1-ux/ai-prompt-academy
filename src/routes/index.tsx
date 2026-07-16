@@ -29,32 +29,25 @@ const modules = [
   },
 ];
 
-function SplitWord({
+function BlurWord({
   text,
   delay = 0,
-  from = "bottom",
 }: {
   text: string;
   delay?: number;
-  from?: "top" | "bottom";
 }) {
-  const y = from === "top" ? -40 : 40;
   return (
-    <span className="inline-block">
-      {text.split("").map((c, i) => (
-        <motion.span
-          key={i}
-          initial={{ opacity: 0, y }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: delay + i * 0.015, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="inline-block will-change-transform"
-        >
-          {c === " " ? "\u00A0" : c}
-        </motion.span>
-      ))}
-    </span>
+    <motion.span
+      initial={{ opacity: 0, filter: "blur(24px)", scale: 1.06 }}
+      animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
+      transition={{ delay, duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+      className="inline-block will-change-[filter,transform,opacity]"
+    >
+      {text}
+    </motion.span>
   );
 }
+
 
 
 
