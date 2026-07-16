@@ -32,21 +32,26 @@ const modules = [
 function BlurWord({
   text,
   delay = 0,
+  from = "bottom",
 }: {
   text: string;
   delay?: number;
+  from?: "top" | "bottom";
 }) {
   return (
-    <motion.span
-      initial={{ opacity: 0, filter: "blur(24px)", scale: 1.06 }}
-      animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
-      transition={{ delay, duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-      className="inline-block will-change-[filter,transform,opacity]"
-    >
-      {text}
-    </motion.span>
+    <span className="inline-block overflow-hidden align-bottom pb-[0.1em]">
+      <motion.span
+        initial={{ y: from === "top" ? "-110%" : "110%" }}
+        animate={{ y: "0%" }}
+        transition={{ delay, duration: 0.9, ease: [0.76, 0, 0.24, 1] }}
+        className="inline-block will-change-transform"
+      >
+        {text}
+      </motion.span>
+    </span>
   );
 }
+
 
 
 
