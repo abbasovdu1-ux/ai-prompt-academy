@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from "motion/react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -29,6 +29,7 @@ const modules = [
   },
 ];
 
+const SCRAMBLE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ01#@$%&";
 function BlurWord({
   text,
   delay = 0,
@@ -37,17 +38,39 @@ function BlurWord({
   delay?: number;
   from?: "top" | "bottom";
 }) {
-  return (
-    <motion.span
-      initial={{ letterSpacing: "-0.15em", opacity: 0, clipPath: "inset(0 50% 0 50%)" }}
-      animate={{ letterSpacing: "-0.02em", opacity: 1, clipPath: "inset(0 0% 0 0%)" }}
-      transition={{ delay, duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-      className="inline-block will-change-transform"
-    >
-      {text}
-    </motion.span>
-  );
+  const [out, setOut] = useState(text);
+  useEffect(() => {
+    let frame = 0;
+    const total = 24;
+    const start = performance.now() + delay * 1000;
+    let raf = 0;
+    const tick = (t: number) => {
+      if (t < start) {
+        raf = requestAnimationFrame(tick);
+        return;
+      }
+      frame++;
+      const revealed = Math.floor((frame / total) * text.length);
+      const next = text
+        .split("")
+        .map((c, i) =>
+          i < revealed
+            ? c
+            : c === " "
+            ? " "
+            : SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)]
+        )
+        .join("");
+      setOut(next);
+      if (frame < total) raf = requestAnimationFrame(tick);
+      else setOut(text);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [text, delay]);
+  return <span className="inline-block">{out}</span>;
 }
+
 
 
 
