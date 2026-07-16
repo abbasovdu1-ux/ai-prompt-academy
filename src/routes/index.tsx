@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from "motion/react";
 import { useEffect, useRef } from "react";
+import { Logo } from "@/components/Logo";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -105,14 +106,10 @@ function Index() {
 
       {/* Nav */}
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-10 py-5 backdrop-blur-md bg-black/50 border-b border-white/5">
-        <div className="flex items-center gap-3">
-          <motion.div
-            animate={{ rotate: [0, 180, 360] }}
-            transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-            className="size-2.5 bg-brand rounded-[1px]"
-          />
+        <Link to="/" className="flex items-center gap-2.5">
+          <Logo size={26} />
           <span className="text-sm font-extrabold tracking-tighter">SYNTHECS</span>
-        </div>
+        </Link>
         <div className="hidden md:flex items-center gap-10 text-[11px] font-mono uppercase tracking-widest text-zinc-500">
           <Link to="/learn" className="hover:text-white transition-colors">Learn</Link>
           <Link to="/library" className="hover:text-white transition-colors">Library</Link>
