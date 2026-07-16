@@ -100,10 +100,10 @@ export function useI18n() {
   return value;
 }
 
-export function LanguageSwitcher() {
+export function LanguageSwitcher({ inline = false }: { inline?: boolean }) {
   const { language, setLanguage, t } = useI18n();
   return (
-    <div className="fixed top-4 right-4 z-[60] flex items-center gap-2 rounded-full border border-white/15 bg-black/70 px-2 py-1.5 text-[10px] font-mono uppercase tracking-widest text-zinc-400 backdrop-blur-md">
+    <div className={`${inline ? "relative" : "fixed top-4 right-4 z-[60]"} flex items-center gap-2 rounded-full border border-white/15 bg-black/70 px-2 py-1.5 text-[10px] font-mono uppercase tracking-widest text-zinc-400 backdrop-blur-md`}>
       <span className="hidden sm:inline">{t("language")}:</span>
       <button onClick={() => setLanguage("en")} className={language === "en" ? "text-white" : "hover:text-white"} aria-label="English">EN</button>
       <span className="text-zinc-700">/</span>

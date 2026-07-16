@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from "motion/react";
 import { useEffect, useRef } from "react";
 import { Logo } from "@/components/Logo";
-import { useI18n } from "@/lib/i18n";
+import { LanguageSwitcher, useI18n } from "@/lib/i18n";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -118,12 +118,15 @@ function Index() {
           <Link to="/methods" className="hover:text-white transition-colors">{t("methods")}</Link>
           <Link to="/trainer" className="hover:text-white transition-colors">{t("trainer")}</Link>
         </div>
-        <Link
+        <div className="flex items-center gap-3">
+          <LanguageSwitcher inline />
+          <Link
           to="/learn"
           className="text-[11px] font-mono uppercase tracking-widest border border-white/15 px-4 py-2 rounded-sm hover:bg-white hover:text-black transition-colors"
         >
           Start learning →
-        </Link>
+          </Link>
+        </div>
       </nav>
 
       {/* Hero */}

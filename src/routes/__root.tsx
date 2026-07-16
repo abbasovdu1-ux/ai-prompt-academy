@@ -10,7 +10,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { I18nProvider, LanguageSwitcher, useI18n } from "../lib/i18n";
+import { I18nProvider, useI18n } from "../lib/i18n";
 
 function NotFoundComponent() {
   return (
@@ -127,7 +127,6 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <I18nProvider>
-        <LanguageSwitcher />
         {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
         <Outlet />
         <GlobalFooter />
