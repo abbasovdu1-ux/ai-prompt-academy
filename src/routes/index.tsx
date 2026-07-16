@@ -85,11 +85,6 @@ function Index() {
 
   return (
     <div className="min-h-screen bg-black text-white font-sans selection:bg-brand/30 overflow-x-hidden">
-      {/* Scroll progress bar */}
-      <motion.div
-        style={{ scaleX: progress }}
-        className="fixed top-0 left-0 right-0 h-px bg-gradient-to-r from-brand to-brand-light origin-left z-[100]"
-      />
 
       {/* Cursor orb */}
       <motion.div
@@ -321,14 +316,22 @@ function Index() {
                   </div>
                 </div>
                 <div className="p-8 font-mono text-sm leading-relaxed">
-                  <div className="text-brand-light mb-2 font-bold">SYSTEM_INSTRUCT:</div>
-                  <div className="text-zinc-400 border-l-2 border-brand/30 pl-4 py-1 italic mb-6">
-                    "You are a high-level architectural advisor for Synthetix. Synthesize the
-                    input into a structured schematic..."
-                  </div>
                   <div className="text-green-400 mb-2 font-bold">USER_INPUT:</div>
                   <div className="text-zinc-300 pl-4 mb-6">
-                    Construct a framework for autonomous recursive task allocation.
+                    Design a website for my AI-powered study assistant project.
+                  </div>
+                  <div className="text-brand-light mb-2 font-bold">SYSTEM_OUTPUT:</div>
+                  <div className="text-zinc-400 border-l-2 border-brand/30 pl-4 py-1 mb-6 space-y-2">
+                    <p className="italic">
+                      "You are a high-level frontend developer with deep experience shipping AI
+                      products. For an AI study assistant, structure the site as follows:"
+                    </p>
+                    <ul className="not-italic list-decimal pl-5 text-zinc-500 space-y-1">
+                      <li>Hero with a live prompt demo of the assistant</li>
+                      <li>Feature grid: flashcards, summaries, Q&amp;A tutor</li>
+                      <li>Social proof from students + universities</li>
+                      <li>Pricing tuned for academic tiers, CTA to try free</li>
+                    </ul>
                   </div>
                   <motion.div
                     animate={{ opacity: [0.2, 1, 0.2] }}
@@ -338,6 +341,7 @@ function Index() {
                     _
                   </motion.div>
                 </div>
+
               </div>
             </motion.div>
           </div>
