@@ -6,7 +6,7 @@ export const Route = createFileRoute("/trainer")({
   component: Trainer,
   head: () => ({
     meta: [
-      { title: "Prompt Trainer — Synthetix Academy" },
+      { title: "Prompt Trainer — Synthecs Academy" },
       {
         name: "description",
         content:
@@ -84,7 +84,7 @@ function Trainer() {
         <Link to="/" className="flex items-center gap-3">
           <div className="w-2 h-2 bg-white" />
           <span className="text-[11px] font-mono uppercase tracking-[0.25em] text-zinc-400">
-            Synthetix / Trainer
+            Synthecs / Trainer
           </span>
         </Link>
         <Link

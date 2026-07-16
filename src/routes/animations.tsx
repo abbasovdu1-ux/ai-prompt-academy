@@ -129,7 +129,7 @@ function AnimationsPreview() {
             Animation Lab
           </div>
           <h1 className="text-4xl md:text-5xl font-bold tracking-tighter">
-            Выбери анимацию для SYNTHETIX ACADEMY
+            Выбери анимацию для SYNTHECS ACADEMY
           </h1>
           <p className="text-zinc-500 max-w-2xl">
             Нажми ↻ Replay чтобы посмотреть эффект снова. Скажи мне номер варианта, и я
@@ -144,7 +144,7 @@ function AnimationsPreview() {
             desc="Слова проступают из размытия с лёгким зумом. Плавно, кинематографично."
             render={(k) => (
               <div key={k}>
-                <div className="block"><BlurWord text="SYNTHETIX" /></div>
+                <div className="block"><BlurWord text="SYNTHECS" /></div>
                 <div className="block text-white/80"><BlurWord text="ACADEMY" delay={0.35} /></div>
               </div>
             )}
@@ -155,7 +155,7 @@ function AnimationsPreview() {
             desc="Слова выезжают снизу вверх из-под невидимой маски. Резко, чётко, премиум."
             render={(k) => (
               <div key={k}>
-                <div className="block"><MaskWord text="SYNTHETIX" /></div>
+                <div className="block"><MaskWord text="SYNTHECS" /></div>
                 <div className="block text-white/80"><MaskWord text="ACADEMY" delay={0.25} /></div>
               </div>
             )}
@@ -166,7 +166,7 @@ function AnimationsPreview() {
             desc="Слова разъезжаются из центра с расширением букв. Архитектурно, широко."
             render={(k) => (
               <div key={k}>
-                <div className="block"><ClipSplitWord text="SYNTHETIX" /></div>
+                <div className="block"><ClipSplitWord text="SYNTHECS" /></div>
                 <div className="block text-white/80"><ClipSplitWord text="ACADEMY" delay={0.3} /></div>
               </div>
             )}
@@ -177,7 +177,7 @@ function AnimationsPreview() {
             desc="Буквы быстро скремблятся случайными символами и оседают в финальный текст. Техно-вайб."
             render={(k) => (
               <div key={k}>
-                <div className="block"><ScrambleWord text="SYNTHETIX" /></div>
+                <div className="block"><ScrambleWord text="SYNTHECS" /></div>
                 <div className="block text-white/80"><ScrambleWord text="ACADEMY" delay={0.3} /></div>
               </div>
             )}

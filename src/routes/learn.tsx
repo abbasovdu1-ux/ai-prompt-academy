@@ -6,13 +6,13 @@ export const Route = createFileRoute("/learn")({
   component: LearnPage,
   head: () => ({
     meta: [
-      { title: "Interactive Lessons — Synthetix Academy" },
+      { title: "Interactive Lessons — Synthecs Academy" },
       {
         name: "description",
         content:
           "Learn to write better AI prompts through short interactive lessons. Read the idea, see before/after, then rewrite a real prompt yourself.",
       },
-      { property: "og:title", content: "Interactive Prompt Lessons — Synthetix" },
+      { property: "og:title", content: "Interactive Prompt Lessons — Synthecs" },
       {
         property: "og:description",
         content:
@@ -238,7 +238,7 @@ function LearnPage() {
         <Link to="/" className="flex items-center gap-3">
           <div className="w-2 h-2 bg-white" />
           <span className="text-[11px] font-mono uppercase tracking-[0.25em] text-zinc-400">
-            Synthetix / Learn
+            Synthecs / Learn
           </span>
         </Link>
         <div className="flex items-center gap-6 text-[11px] font-mono uppercase tracking-widest text-zinc-500">
