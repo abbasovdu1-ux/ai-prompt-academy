@@ -375,9 +375,9 @@ function Index() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 border-t border-white/5 pt-12">
           <div className="text-xl font-extrabold tracking-tighter">SYNTHETIX</div>
           <div className="flex items-center gap-8 text-[11px] font-mono text-zinc-500 uppercase tracking-widest">
-            <a href="#curriculum" className="hover:text-white transition-colors">Curriculum</a>
+            <Link to="/learn" className="hover:text-white transition-colors">Learn</Link>
+            <Link to="/library" className="hover:text-white transition-colors">Library</Link>
             <Link to="/methods" className="hover:text-white transition-colors">Methods</Link>
-            <a href="#lab" className="hover:text-white transition-colors">Prompt Lab</a>
             <Link to="/trainer" className="hover:text-white transition-colors">Trainer</Link>
           </div>
           <div className="text-[10px] font-mono text-zinc-600">
