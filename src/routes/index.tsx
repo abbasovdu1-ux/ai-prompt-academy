@@ -375,9 +375,9 @@ function Index() {
           <div className="text-xl font-extrabold tracking-tighter">SYNTHETIX</div>
           <div className="flex items-center gap-8 text-[11px] font-mono text-zinc-500 uppercase tracking-widest">
             <a href="#curriculum" className="hover:text-white transition-colors">Curriculum</a>
+            <Link to="/methods" className="hover:text-white transition-colors">Methods</Link>
             <a href="#lab" className="hover:text-white transition-colors">Prompt Lab</a>
-            <a href="#" className="hover:text-white transition-colors">Privacy</a>
-            <a href="#" className="hover:text-white transition-colors">System Status</a>
+            <Link to="/trainer" className="hover:text-white transition-colors">Trainer</Link>
           </div>
           <div className="text-[10px] font-mono text-zinc-600">
             © 2026 SYNTHETIX INTELLECTUAL UNITS.
