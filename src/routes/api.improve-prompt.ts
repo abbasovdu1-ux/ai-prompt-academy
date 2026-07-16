@@ -109,7 +109,7 @@ CRITICAL LANGUAGE RULE: Detect the language of the user's task text below and wr
 
         try {
           const { text } = await generateText({
-            model: gemini(process.env.GEMINI_MODEL || "gemini-2.5-flash-lite"),
+            model: gemini(process.env.GEMINI_MODEL || "gemini-3.1-flash-lite"),
             system,
             prompt: `Task: ${task}\nTarget model: ${model}`,
           });
