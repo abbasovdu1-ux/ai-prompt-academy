@@ -138,15 +138,23 @@ function RootComponent() {
 function GlobalFooter() {
   const { t } = useI18n();
   return (
-    <footer className="border-t border-border px-6 py-8 text-center text-sm text-muted-foreground">
-      <nav className="flex flex-wrap justify-center gap-x-5 gap-y-2">
+    <footer className="global-footer border-t border-border px-6 py-12 text-center text-sm text-muted-foreground">
+      <nav className="flex flex-wrap justify-center gap-x-6 gap-y-3">
         <Link to="/privacy" className="hover:text-foreground">{t("privacy")}</Link>
         <Link to="/impressum" className="hover:text-foreground">{t("impressum")}</Link>
         <Link to="/terms" className="hover:text-foreground">{t("terms")}</Link>
-        <a href="https://www.linkedin.com/in/toghrul-abbasov-10a24534a/" target="_blank" rel="noreferrer" className="hover:text-foreground">
-          {t("contact")}
-        </a>
       </nav>
+      <div className="mx-auto mt-8 max-w-md border-t border-border/70 pt-6">
+        <p className="text-xs font-medium uppercase tracking-[0.2em] text-foreground/70">{t("contact")}</p>
+        <div className="mt-3 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs">
+          <a href="mailto:toghrulabbasov7@gmail.com" className="hover:text-foreground">toghrulabbasov7@gmail.com</a>
+          <a href="https://www.linkedin.com/in/toghrul-abbasov-10a24534a/" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="inline-flex items-center gap-1.5 hover:text-foreground">
+            <svg aria-hidden="true" viewBox="0 0 24 24" className="size-4 fill-current"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0ZM.5 8h4.96v15H.5V8Zm7.5 0h4.75v2.05h.07c.66-1.25 2.28-2.55 4.7-2.55 5.03 0 5.96 3.31 5.96 7.61V23h-4.95v-7.01c0-1.67-.03-3.82-2.33-3.82-2.34 0-2.7 1.82-2.7 3.7V23H8V8Z" /></svg>
+            {t("linkedin")}
+          </a>
+        </div>
+        <p className="mt-3 text-xs text-muted-foreground/70">Toghrul Abbasov · CEO &amp; Founder</p>
+      </div>
       <p className="mt-3 text-xs">Toghrul Abbasov · <a href="https://www.linkedin.com/in/toghrul-abbasov-10a24534a/" target="_blank" rel="noreferrer" className="underline underline-offset-4 hover:text-foreground">{t("linkedin")}</a></p>
     </footer>
   );

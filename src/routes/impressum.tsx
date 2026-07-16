@@ -7,12 +7,13 @@ export const Route = createFileRoute("/impressum")({
 
 function ImpressumPage() {
   return (
-    <main className="mx-auto min-h-screen max-w-3xl px-6 py-16 text-foreground">
+    <main className="legal-shell mx-auto min-h-screen px-6 py-20 text-foreground">
       <a href="/" className="text-sm text-primary hover:underline">
         ← Back to Synthecs Academy
       </a>
-      <h1 className="mt-8 text-4xl font-bold">Impressum</h1>
-      <section className="prose prose-invert mt-10 max-w-none">
+      <h1 className="mt-10 text-4xl font-semibold tracking-tight">Impressum</h1>
+      <p className="mt-3 text-sm text-muted-foreground">Legal notice and contact information</p>
+      <section className="legal-content mt-12 max-w-none">
         <h2>Anbieter</h2>
         <p>
           Toghrul Abbasov
