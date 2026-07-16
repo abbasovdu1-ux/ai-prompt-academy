@@ -38,25 +38,34 @@ function BlurWord({
   from?: "top" | "bottom";
 }) {
   return (
-    <span className="inline-block align-bottom">
-      {text.split("").map((ch, i) => (
-        <motion.span
-          key={i}
-          initial={{ y: "0.9em", opacity: 0 }}
-          animate={{ y: "0em", opacity: 1 }}
-          transition={{
-            delay: delay + i * 0.06,
-            duration: 0.7,
-            ease: [0.22, 1, 0.36, 1],
-          }}
-          className="inline-block will-change-transform"
-        >
-          {ch === " " ? "\u00A0" : ch}
-        </motion.span>
-      ))}
-    </span>
+    <motion.span
+      initial={{ opacity: 0, textShadow: "0 0 0px rgba(129,140,248,0)" }}
+      animate={{
+        opacity: [0, 1, 0.2, 1, 0.4, 1, 0.7, 1],
+        textShadow: [
+          "0 0 0px rgba(129,140,248,0)",
+          "0 0 24px rgba(129,140,248,0.9)",
+          "0 0 4px rgba(129,140,248,0.3)",
+          "0 0 32px rgba(129,140,248,1)",
+          "0 0 8px rgba(129,140,248,0.4)",
+          "0 0 28px rgba(129,140,248,0.9)",
+          "0 0 12px rgba(129,140,248,0.5)",
+          "0 0 20px rgba(129,140,248,0.75)",
+        ],
+      }}
+      transition={{
+        delay,
+        duration: 1.4,
+        times: [0, 0.08, 0.14, 0.25, 0.35, 0.5, 0.7, 1],
+        ease: "easeOut",
+      }}
+      className="inline-block will-change-[opacity,text-shadow]"
+    >
+      {text}
+    </motion.span>
   );
 }
+
 
 
 
