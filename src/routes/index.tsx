@@ -137,12 +137,12 @@ function Index() {
       >
         <motion.div
           style={{ scale: glowScale }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-[600px] bg-brand/10 rounded-full blur-[120px] pointer-events-none"
+          className="mobile-performance-blur absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-[600px] bg-brand/10 rounded-full blur-[120px] pointer-events-none"
         />
         <motion.div
           animate={{ x: [0, 60, 0], y: [0, -30, 0] }}
           transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 left-1/3 size-[300px] bg-purple-500/10 rounded-full blur-[100px] pointer-events-none"
+          className="mobile-performance-blur absolute top-1/4 left-1/3 size-[300px] bg-purple-500/10 rounded-full blur-[100px] pointer-events-none"
         />
 
         {/* Subtle grid */}
@@ -342,7 +342,7 @@ function Index() {
                 Explore Syllabus →
               </Link>
               <motion.div
-                className="absolute -bottom-16 -right-16 size-40 bg-brand/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"
+                className="mobile-performance-blur absolute -bottom-16 -right-16 size-40 bg-brand/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"
               />
             </motion.div>
           ))}
@@ -439,7 +439,7 @@ function Index() {
         <motion.div
           animate={{ opacity: [0.15, 0.35, 0.15] }}
           transition={{ duration: 6, repeat: Infinity }}
-          className="absolute -top-40 -right-40 size-[500px] bg-brand/20 blur-[140px] rounded-full pointer-events-none"
+              className="mobile-performance-blur absolute -top-40 -right-40 size-[500px] bg-brand/20 blur-[140px] rounded-full pointer-events-none"
         />
       </section>
 

@@ -47,3 +47,36 @@
     font-family: var(--font-sans);
   }
 }
+
+/* Keep the visual language on small screens without making scrolling expensive. */
+@media (max-width: 767px) {
+  html {
+    overflow-x: hidden;
+    scroll-behavior: auto;
+  }
+
+  body {
+    overscroll-behavior-x: none;
+  }
+
+  .mobile-performance-blur {
+    display: none !important;
+  }
+
+  .backdrop-blur-md,
+  .backdrop-blur-sm {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
