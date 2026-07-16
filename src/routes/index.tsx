@@ -193,22 +193,22 @@ function Index() {
             transition={{ delay: 0.75, duration: 0.5 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4"
           >
-            <motion.a
-              href="#curriculum"
-              whileHover={{ scale: 1.03, y: -2 }}
-              whileTap={{ scale: 0.97 }}
-              className="px-8 py-4 bg-white text-black font-bold rounded-sm hover:bg-brand-light transition-colors"
-            >
-              Begin Mastery
-            </motion.a>
-            <motion.a
-              href="#curriculum"
-              whileHover={{ scale: 1.03, y: -2 }}
-              whileTap={{ scale: 0.97 }}
-              className="px-8 py-4 border border-white/10 backdrop-blur-md rounded-sm hover:bg-white/5 transition-colors"
-            >
-              View Curriculum
-            </motion.a>
+            <motion.div whileHover={{ scale: 1.03, y: -2 }} whileTap={{ scale: 0.97 }}>
+              <Link
+                to="/learn"
+                className="inline-block px-8 py-4 bg-white text-black font-bold rounded-sm hover:bg-brand-light transition-colors"
+              >
+                Start learning
+              </Link>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.03, y: -2 }} whileTap={{ scale: 0.97 }}>
+              <Link
+                to="/library"
+                className="inline-block px-8 py-4 border border-white/10 backdrop-blur-md rounded-sm hover:bg-white/5 transition-colors"
+              >
+                Browse prompt library
+              </Link>
+            </motion.div>
           </motion.div>
         </div>
 
