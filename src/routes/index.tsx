@@ -116,6 +116,7 @@ function Index() {
         <div className="hidden md:flex items-center gap-10 text-[11px] font-mono uppercase tracking-widest text-zinc-500">
           <a href="#curriculum" className="hover:text-white transition-colors">Curriculum</a>
           <a href="#lab" className="hover:text-white transition-colors">Prompt Lab</a>
+          <a href="/trainer" className="hover:text-white transition-colors">Trainer</a>
           <a href="#footer" className="hover:text-white transition-colors">System</a>
         </div>
         <a

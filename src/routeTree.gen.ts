@@ -9,9 +9,16 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TrainerRouteImport } from './routes/trainer'
 import { Route as AnimationsRouteImport } from './routes/animations'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApiImprovePromptRouteImport } from './routes/api.improve-prompt'
 
+const TrainerRoute = TrainerRouteImport.update({
+  id: '/trainer',
+  path: '/trainer',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AnimationsRoute = AnimationsRouteImport.update({
   id: '/animations',
   path: '/animations',
@@ -22,35 +29,55 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiImprovePromptRoute = ApiImprovePromptRouteImport.update({
+  id: '/api/improve-prompt',
+  path: '/api/improve-prompt',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/animations': typeof AnimationsRoute
+  '/trainer': typeof TrainerRoute
+  '/api/improve-prompt': typeof ApiImprovePromptRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/animations': typeof AnimationsRoute
+  '/trainer': typeof TrainerRoute
+  '/api/improve-prompt': typeof ApiImprovePromptRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/animations': typeof AnimationsRoute
+  '/trainer': typeof TrainerRoute
+  '/api/improve-prompt': typeof ApiImprovePromptRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/animations'
+  fullPaths: '/' | '/animations' | '/trainer' | '/api/improve-prompt'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/animations'
-  id: '__root__' | '/' | '/animations'
+  to: '/' | '/animations' | '/trainer' | '/api/improve-prompt'
+  id: '__root__' | '/' | '/animations' | '/trainer' | '/api/improve-prompt'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AnimationsRoute: typeof AnimationsRoute
+  TrainerRoute: typeof TrainerRoute
+  ApiImprovePromptRoute: typeof ApiImprovePromptRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/trainer': {
+      id: '/trainer'
+      path: '/trainer'
+      fullPath: '/trainer'
+      preLoaderRoute: typeof TrainerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/animations': {
       id: '/animations'
       path: '/animations'
@@ -65,12 +92,21 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/improve-prompt': {
+      id: '/api/improve-prompt'
+      path: '/api/improve-prompt'
+      fullPath: '/api/improve-prompt'
+      preLoaderRoute: typeof ApiImprovePromptRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AnimationsRoute: AnimationsRoute,
+  TrainerRoute: TrainerRoute,
+  ApiImprovePromptRoute: ApiImprovePromptRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
