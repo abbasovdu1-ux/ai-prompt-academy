@@ -238,11 +238,12 @@ function Index() {
               The Mastery Path
             </h2>
             <p className="text-zinc-500 max-w-md">
-              Four specialized tracks designed to transition you from prompt hobbyist to
-              synthetic architect.
+              18 prompt frameworks in the full syllabus. Four featured below to get you started.
             </p>
           </div>
-          <div className="text-sm font-mono text-brand-light">[ 04 Modules Available ]</div>
+          <Link to="/methods" className="text-sm font-mono text-brand-light hover:text-white transition-colors">
+            [ 04 FEATURED · 18 TOTAL — SEE ALL → ]
+          </Link>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10 border border-white/10">
