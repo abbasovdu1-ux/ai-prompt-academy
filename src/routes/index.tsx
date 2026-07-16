@@ -165,10 +165,11 @@ function Index() {
           </motion.div>
 
           <h1 className="text-7xl md:text-9xl font-extrabold tracking-tighter leading-[0.9]">
-            <SplitWord text="SYNTHETIX" />
+            <SplitWord text="SYNTHETIX" from="top" />
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-b from-white to-white/30">
-              <SplitWord text="ACADEMY" delay={0.5} />
+              <SplitWord text="ACADEMY" delay={0.5} from="bottom" />
+
             </span>
           </h1>
 
