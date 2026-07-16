@@ -169,7 +169,7 @@ function Index() {
               <SplitWord text="SYNTHETIX" from="top" />
             </span>
             <span className="block text-white/80">
-              <SplitWord text="ACADEMY" delay={0.6} from="bottom" />
+              <SplitWord text="ACADEMY" delay={0.25} from="bottom" />
             </span>
           </h1>
 
