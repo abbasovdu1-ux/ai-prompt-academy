@@ -31,22 +31,22 @@ const modules = [
 
 function SplitWord({ text, delay = 0 }: { text: string; delay?: number }) {
   return (
-    <span className="inline-flex flex-wrap justify-center">
+    <span className="inline-block">
       {text.split("").map((c, i) => (
         <motion.span
           key={i}
-          initial={{ opacity: 0, y: 80, rotateX: -70 }}
-          animate={{ opacity: 1, y: 0, rotateX: 0 }}
-          transition={{ delay: delay + i * 0.04, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="inline-block"
-          style={{ transformPerspective: 1000 }}
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: delay + i * 0.025, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="inline-block will-change-transform"
         >
-          {c}
+          {c === " " ? "\u00A0" : c}
         </motion.span>
       ))}
     </span>
   );
 }
+
 
 function Index() {
   const heroRef = useRef<HTMLElement>(null);
