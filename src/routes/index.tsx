@@ -159,11 +159,12 @@ function Index() {
 
           <h1 className="text-7xl md:text-9xl font-extrabold tracking-tighter leading-[0.9]">
             <span className="block">
-              <SplitWord text="SYNTHETIX" from="top" />
+              <BlurWord text="SYNTHETIX" />
             </span>
             <span className="block text-white/80">
-              <SplitWord text="ACADEMY" delay={0.25} from="bottom" />
+              <BlurWord text="ACADEMY" delay={0.35} />
             </span>
+
           </h1>
 
           <motion.p
