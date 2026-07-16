@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/terms")({
-  head: () => ({ meta: [{ title: "Terms of Use — Synthecs" }] }),
+  head: () => ({ meta: [{ title: "Terms of Use — Synthecs Academy" }] }),
   component: TermsPage,
 });
 
@@ -9,14 +9,14 @@ function TermsPage() {
   return (
     <main className="mx-auto min-h-screen max-w-3xl px-6 py-16 text-foreground">
       <a href="/" className="text-sm text-primary hover:underline">
-        ← Back to Synthecs
+        ← Back to Synthecs Academy
       </a>
       <h1 className="mt-8 text-4xl font-bold">Terms of Use</h1>
       <p className="mt-3 text-muted-foreground">Last updated: 16 July 2026</p>
       <section className="prose prose-invert mt-10 max-w-none">
         <h2>Educational service</h2>
         <p>
-          Synthecs provides educational material and AI-assisted prompt suggestions. AI output may
+          Synthecs Academy provides educational material and AI-assisted prompt suggestions. AI output may
           be incomplete or inaccurate and should be reviewed before use.
         </p>
         <h2>Acceptable use</h2>

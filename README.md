@@ -1,6 +1,6 @@
-# Synthecs — Learn AI & Prompt Engineering
+# Synthecs Academy — Learn AI & Prompt Engineering
 
-Synthecs is an interactive learning site for prompt engineering. It includes lessons, a prompt library, reusable methods and an AI prompt trainer.
+Synthecs Academy is an interactive learning site for prompt engineering. It includes lessons, a prompt library, reusable methods and an AI prompt trainer.
 
 ## Stack
 

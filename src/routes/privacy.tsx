@@ -3,8 +3,8 @@ import { createFileRoute } from "@tanstack/react-router";
 export const Route = createFileRoute("/privacy")({
   head: () => ({
     meta: [
-      { title: "Privacy Policy — Synthecs" },
-      { name: "description", content: "How Synthecs processes personal data." },
+      { title: "Privacy Policy — Synthecs Academy" },
+      { name: "description", content: "How Synthecs Academy processes personal data." },
     ],
   }),
   component: PrivacyPage,
@@ -14,7 +14,7 @@ function PrivacyPage() {
   return (
     <main className="mx-auto min-h-screen max-w-3xl px-6 py-16 text-foreground">
       <a href="/" className="text-sm text-primary hover:underline">
-        ← Back to Synthecs
+        ← Back to Synthecs Academy
       </a>
       <h1 className="mt-8 text-4xl font-bold">Privacy Policy</h1>
       <p className="mt-3 text-muted-foreground">Last updated: 16 July 2026</p>
@@ -23,7 +23,7 @@ function PrivacyPage() {
         <h2>1. Controller</h2>
         <p>
           <strong>IMPORTANT:</strong> Before launch, replace this section with the legal name,
-          postal address and contact email of the person or company operating Synthecs.
+          postal address and contact email of the person or company operating Synthecs Academy.
         </p>
         <p>Controller: [LEGAL NAME], [POSTAL ADDRESS], [CONTACT EMAIL].</p>
 

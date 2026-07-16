@@ -108,7 +108,7 @@ function Index() {
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-10 py-5 backdrop-blur-md bg-black/50 border-b border-white/5">
         <Link to="/" className="flex items-center gap-2.5">
           <Logo size={26} />
-          <span className="text-sm font-extrabold tracking-tighter">SYNTHECS</span>
+          <span className="text-sm font-extrabold tracking-tighter">SYNTHECS ACADEMY</span>
         </Link>
         <div className="hidden md:flex items-center gap-10 text-[11px] font-mono uppercase tracking-widest text-zinc-500">
           <Link to="/learn" className="hover:text-white transition-colors">Learn</Link>
@@ -444,7 +444,7 @@ function Index() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 border-t border-white/5 pt-12">
           <div className="flex items-center gap-3">
             <Logo size={28} />
-            <div className="text-xl font-extrabold tracking-tighter">SYNTHECS</div>
+            <div className="text-xl font-extrabold tracking-tighter">SYNTHECS ACADEMY</div>
           </div>
           <div className="flex items-center gap-8 text-[11px] font-mono text-zinc-500 uppercase tracking-widest">
             <Link to="/learn" className="hover:text-white transition-colors">Learn</Link>
@@ -453,7 +453,7 @@ function Index() {
             <Link to="/trainer" className="hover:text-white transition-colors">Trainer</Link>
           </div>
           <div className="text-[10px] font-mono text-zinc-600">
-            © 2026 SYNTHECS INTELLECTUAL UNITS.
+            © 2026 SYNTHECS ACADEMY.
           </div>
         </div>
       </footer>
