@@ -278,7 +278,7 @@ Write a short Python program that computes this step by step, prints each week's
     code: "15",
     name: "Persona Pattern",
     expands: "Deep, specific persona",
-    when: "Tone-critical writing, roleplay, expert Q&A. Generic personas (&quot;helpful assistant&quot;) produce generic output.",
+    when: "Tone-critical writing, roleplay, expert Q&A. Generic personas (like 'helpful assistant') produce generic output.",
     structure: [
       "Name the persona and their years of experience",
       "Give 2–3 opinions or biases they hold",
@@ -313,7 +313,7 @@ Now write the title for this report: <paste user report>`,
     code: "17",
     name: "Rubric-Based",
     expands: "Grade against explicit criteria",
-    when: "Evaluating outputs (yours or someone else's) with consistency. Turns "is this good?" into a scored answer.",
+    when: "Evaluating outputs (yours or someone else's) with consistency. Turns 'is this good?' into a scored answer.",
     structure: [
       "Define 3–6 criteria with 1–5 scales and anchors",
       "Score each criterion with a one-line justification",
