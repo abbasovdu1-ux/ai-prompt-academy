@@ -114,17 +114,17 @@ function Index() {
           <span className="text-sm font-extrabold tracking-tighter">SYNTHETIX</span>
         </div>
         <div className="hidden md:flex items-center gap-10 text-[11px] font-mono uppercase tracking-widest text-zinc-500">
-          <a href="#curriculum" className="hover:text-white transition-colors">Curriculum</a>
+          <Link to="/learn" className="hover:text-white transition-colors">Learn</Link>
+          <Link to="/library" className="hover:text-white transition-colors">Library</Link>
           <Link to="/methods" className="hover:text-white transition-colors">Methods</Link>
-          <a href="#lab" className="hover:text-white transition-colors">Prompt Lab</a>
           <Link to="/trainer" className="hover:text-white transition-colors">Trainer</Link>
         </div>
-        <a
-          href="#curriculum"
+        <Link
+          to="/learn"
           className="text-[11px] font-mono uppercase tracking-widest border border-white/15 px-4 py-2 rounded-sm hover:bg-white hover:text-black transition-colors"
         >
-          Enroll →
-        </a>
+          Start learning →
+        </Link>
       </nav>
 
       {/* Hero */}
