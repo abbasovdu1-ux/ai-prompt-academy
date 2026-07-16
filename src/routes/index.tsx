@@ -164,10 +164,11 @@ function Index() {
 
           <h1 className="text-7xl md:text-9xl font-extrabold tracking-tighter leading-[0.9]">
             <span className="block">
-              <BlurWord text="SYNTHETIX" />
+              <BlurWord text="SYNTHETIX" from="top" />
             </span>
             <span className="block text-white/80">
-              <BlurWord text="ACADEMY" delay={0.35} />
+              <BlurWord text="ACADEMY" delay={0.35} from="bottom" />
+
             </span>
 
           </h1>
