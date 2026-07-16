@@ -32,6 +32,7 @@ const modules = [
 function BlurWord({
   text,
   delay = 0,
+  from = "top",
 }: {
   text: string;
   delay?: number;
@@ -39,32 +40,16 @@ function BlurWord({
 }) {
   return (
     <motion.span
-      initial={{ opacity: 0, textShadow: "0 0 0px rgba(129,140,248,0)" }}
-      animate={{
-        opacity: [0, 1, 0.2, 1, 0.4, 1, 0.7, 1],
-        textShadow: [
-          "0 0 0px rgba(129,140,248,0)",
-          "0 0 24px rgba(129,140,248,0.9)",
-          "0 0 4px rgba(129,140,248,0.3)",
-          "0 0 32px rgba(129,140,248,1)",
-          "0 0 8px rgba(129,140,248,0.4)",
-          "0 0 28px rgba(129,140,248,0.9)",
-          "0 0 12px rgba(129,140,248,0.5)",
-          "0 0 20px rgba(129,140,248,0.75)",
-        ],
-      }}
-      transition={{
-        delay,
-        duration: 1.4,
-        times: [0, 0.08, 0.14, 0.25, 0.35, 0.5, 0.7, 1],
-        ease: "easeOut",
-      }}
-      className="inline-block will-change-[opacity,text-shadow]"
+      initial={{ opacity: 0, filter: "blur(24px)", y: from === "top" ? -30 : 30, scale: 1.06 }}
+      animate={{ opacity: 1, filter: "blur(0px)", y: 0, scale: 1 }}
+      transition={{ delay, duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+      className="inline-block will-change-[opacity,filter,transform]"
     >
       {text}
     </motion.span>
   );
 }
+
 
 
 
