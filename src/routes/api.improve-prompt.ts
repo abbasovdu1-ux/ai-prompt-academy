@@ -46,7 +46,7 @@ Return STRICT JSON only, no markdown fences, no prose. Shape:
   "tips": ["tip 1", "tip 2", "tip 3"]
 }
 
-Write "improved" in the same language as the user's task. Write "tips" in the same language as the user's task.`;
+CRITICAL LANGUAGE RULE: Detect the language of the user's task text below and write BOTH "improved" and "tips" in that EXACT same language. If the task is in English, respond in English. If in Russian, respond in Russian. Never switch to a different language (no German, no French, etc. unless the task itself is in that language). Match the task's language character-for-character.`;
 
         try {
           const { text } = await generateText({
