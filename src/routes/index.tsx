@@ -38,7 +38,7 @@ function SplitWord({
   delay?: number;
   from?: "top" | "bottom";
 }) {
-  const y = from === "top" ? -80 : 80;
+  const y = from === "top" ? -40 : 40;
   return (
     <span className="inline-block">
       {text.split("").map((c, i) => (
@@ -46,7 +46,7 @@ function SplitWord({
           key={i}
           initial={{ opacity: 0, y }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: delay + i * 0.035, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ delay: delay + i * 0.015, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
           className="inline-block will-change-transform"
         >
           {c === " " ? "\u00A0" : c}
@@ -169,14 +169,14 @@ function Index() {
               <SplitWord text="SYNTHETIX" from="top" />
             </span>
             <span className="block text-white/80">
-              <SplitWord text="ACADEMY" delay={0.6} from="bottom" />
+              <SplitWord text="ACADEMY" delay={0.25} from="bottom" />
             </span>
           </h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.4, duration: 0.7 }}
+            transition={{ delay: 0.6, duration: 0.5 }}
             className="max-w-xl mx-auto text-zinc-400 text-lg md:text-xl font-light leading-relaxed"
           >
             Master the architecture of synthetic intelligence through high-fidelity curricula
@@ -186,7 +186,7 @@ function Index() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.6, duration: 0.6 }}
+            transition={{ delay: 0.75, duration: 0.5 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4"
           >
             <motion.a
