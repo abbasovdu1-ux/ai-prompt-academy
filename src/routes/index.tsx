@@ -29,7 +29,6 @@ const modules = [
   },
 ];
 
-const SCRAMBLE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ01#@$%&";
 function BlurWord({
   text,
   delay = 0,
@@ -38,38 +37,27 @@ function BlurWord({
   delay?: number;
   from?: "top" | "bottom";
 }) {
-  const [out, setOut] = useState(text);
-  useEffect(() => {
-    let frame = 0;
-    const total = 24;
-    const start = performance.now() + delay * 1000;
-    let raf = 0;
-    const tick = (t: number) => {
-      if (t < start) {
-        raf = requestAnimationFrame(tick);
-        return;
-      }
-      frame++;
-      const revealed = Math.floor((frame / total) * text.length);
-      const next = text
-        .split("")
-        .map((c, i) =>
-          i < revealed
-            ? c
-            : c === " "
-            ? " "
-            : SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)]
-        )
-        .join("");
-      setOut(next);
-      if (frame < total) raf = requestAnimationFrame(tick);
-      else setOut(text);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [text, delay]);
-  return <span className="inline-block">{out}</span>;
+  return (
+    <span className="inline-block align-bottom">
+      {text.split("").map((ch, i) => (
+        <motion.span
+          key={i}
+          initial={{ y: "0.9em", opacity: 0 }}
+          animate={{ y: "0em", opacity: 1 }}
+          transition={{
+            delay: delay + i * 0.06,
+            duration: 0.7,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          className="inline-block will-change-transform"
+        >
+          {ch === " " ? "\u00A0" : ch}
+        </motion.span>
+      ))}
+    </span>
+  );
 }
+
 
 
 
