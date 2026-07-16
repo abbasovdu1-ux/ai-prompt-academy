@@ -442,7 +442,10 @@ function Index() {
       {/* Footer */}
       <footer id="footer" className="py-16 px-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 border-t border-white/5 pt-12">
-          <div className="text-xl font-extrabold tracking-tighter">SYNTHECS</div>
+          <div className="flex items-center gap-3">
+            <Logo size={28} />
+            <div className="text-xl font-extrabold tracking-tighter">SYNTHECS</div>
+          </div>
           <div className="flex items-center gap-8 text-[11px] font-mono text-zinc-500 uppercase tracking-widest">
             <Link to="/learn" className="hover:text-white transition-colors">Learn</Link>
             <Link to="/library" className="hover:text-white transition-colors">Library</Link>
