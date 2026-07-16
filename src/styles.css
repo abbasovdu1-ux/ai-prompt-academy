@@ -5,8 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
   --color-background: var(--background);
@@ -27,11 +27,12 @@
 :root {
   --background: oklch(0.145 0 0);
   --foreground: oklch(1 0 0);
-  --surface-low: oklch(0.145 0 0);
-  --surface-mid: oklch(0.205 0 0);
-  --surface-high: oklch(0.269 0 0);
-  --brand: oklch(0.585 0.223 277.117);
-  --brand-light: oklch(0.702 0.183 276.935);
+  --background: oklch(0 0 0);
+  --surface-low: oklch(0 0 0);
+  --surface-mid: oklch(0.14 0 0);
+  --surface-high: oklch(0.19 0 0);
+  --brand: oklch(0.62 0.21 280);
+  --brand-light: oklch(0.75 0.17 280);
   --border: oklch(1 0 0 / 8%);
   --muted-foreground: oklch(1 0 0 / 50%);
 }
