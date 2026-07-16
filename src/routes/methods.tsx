@@ -278,7 +278,7 @@ Write a short Python program that computes this step by step, prints each week's
     code: "15",
     name: "Persona Pattern",
     expands: "Deep, specific persona",
-    when: "Tone-critical writing, roleplay, expert Q&A. Generic personas ("helpful assistant") produce generic output.",
+    when: "Tone-critical writing, roleplay, expert Q&A. Generic personas (&quot;helpful assistant&quot;) produce generic output.",
     structure: [
       "Name the persona and their years of experience",
       "Give 2–3 opinions or biases they hold",
