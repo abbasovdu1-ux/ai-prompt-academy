@@ -10,7 +10,6 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
   return (
@@ -37,9 +36,7 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
-  useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
-  }, [error]);
+  useEffect(() => undefined, [error]);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -130,6 +127,19 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
+      <footer className="border-t border-border px-6 py-8 text-center text-sm text-muted-foreground">
+        <nav className="flex flex-wrap justify-center gap-x-5 gap-y-2">
+          <Link to="/privacy" className="hover:text-foreground">
+            Privacy
+          </Link>
+          <Link to="/impressum" className="hover:text-foreground">
+            Impressum
+          </Link>
+          <Link to="/terms" className="hover:text-foreground">
+            Terms
+          </Link>
+        </nav>
+      </footer>
     </QueryClientProvider>
   );
 }

@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { generateText } from "ai";
-import { createLovableAiGatewayProvider } from "@/lib/ai-gateway.server";
+import { createGeminiProvider } from "@/lib/gemini.server";
 
 type Body = {
   task?: string;
@@ -79,20 +79,19 @@ export const Route = createFileRoute("/api/improve-prompt")({
           return new Response("Missing task or model", { status: 400 });
         }
         if (typeof task !== "string" || task.length > MAX_TASK_LENGTH) {
-          return new Response(
-            `Task must be a string of at most ${MAX_TASK_LENGTH} characters`,
-            { status: 400 },
-          );
+          return new Response(`Task must be a string of at most ${MAX_TASK_LENGTH} characters`, {
+            status: 400,
+          });
         }
         if (typeof model !== "string" || !(model in MODEL_STYLES)) {
           return new Response("Unknown model", { status: 400 });
         }
 
         const style = MODEL_STYLES[model];
-        const key = process.env.LOVABLE_API_KEY;
-        if (!key) return new Response("Missing LOVABLE_API_KEY", { status: 500 });
+        const key = process.env.GEMINI_API_KEY;
+        if (!key) return new Response("AI service is not configured", { status: 503 });
 
-        const gateway = createLovableAiGatewayProvider(key);
+        const gemini = createGeminiProvider(key);
         const system = `You are a world-class prompt engineer. The user will give you a rough task and a target AI model. Your job:
 1. Rewrite the task as a highly effective prompt tailored to the target model's strengths.
 2. Give 3-5 short, sharp tips explaining WHY the rewrite works for this specific model.
@@ -110,13 +109,17 @@ CRITICAL LANGUAGE RULE: Detect the language of the user's task text below and wr
 
         try {
           const { text } = await generateText({
-            model: gateway("google/gemini-3-flash-preview"),
+            model: gemini(process.env.GEMINI_MODEL || "gemini-2.5-flash"),
             system,
             prompt: `Task: ${task}\nTarget model: ${model}`,
           });
 
           // Strip possible code fences
-          const cleaned = text.trim().replace(/^```(?:json)?/i, "").replace(/```$/, "").trim();
+          const cleaned = text
+            .trim()
+            .replace(/^```(?:json)?/i, "")
+            .replace(/```$/, "")
+            .trim();
           let parsed: { improved: string; tips: string[] };
           try {
             parsed = JSON.parse(cleaned);
@@ -127,7 +130,10 @@ CRITICAL LANGUAGE RULE: Detect the language of the user's task text below and wr
         } catch (err) {
           const msg = err instanceof Error ? err.message : "Unknown error";
           console.error("[api/improve-prompt] Upstream AI error:", msg, { ip, model });
-          return new Response(msg, { status: 500 });
+          return new Response("The AI service is temporarily unavailable", {
+            status: 502,
+            headers: { "Cache-Control": "no-store" },
+          });
         }
       },
     },

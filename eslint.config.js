@@ -37,4 +37,10 @@ export default tseslint.config(
     },
   },
   eslintPluginPrettier,
+  {
+    rules: {
+      // Existing source files use mixed line endings; keep formatting advisory.
+      "prettier/prettier": "warn",
+    },
+  },
 );

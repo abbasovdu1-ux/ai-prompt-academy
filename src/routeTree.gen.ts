@@ -10,9 +10,12 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TrainerRouteImport } from './routes/trainer'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as MethodsRouteImport } from './routes/methods'
 import { Route as LibraryRouteImport } from './routes/library'
 import { Route as LearnRouteImport } from './routes/learn'
+import { Route as ImpressumRouteImport } from './routes/impressum'
 import { Route as AnimationsRouteImport } from './routes/animations'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiImprovePromptRouteImport } from './routes/api.improve-prompt'
@@ -20,6 +23,16 @@ import { Route as ApiImprovePromptRouteImport } from './routes/api.improve-promp
 const TrainerRoute = TrainerRouteImport.update({
   id: '/trainer',
   path: '/trainer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MethodsRoute = MethodsRouteImport.update({
@@ -35,6 +48,11 @@ const LibraryRoute = LibraryRouteImport.update({
 const LearnRoute = LearnRouteImport.update({
   id: '/learn',
   path: '/learn',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImpressumRoute = ImpressumRouteImport.update({
+  id: '/impressum',
+  path: '/impressum',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AnimationsRoute = AnimationsRouteImport.update({
@@ -56,18 +74,24 @@ const ApiImprovePromptRoute = ApiImprovePromptRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/animations': typeof AnimationsRoute
+  '/impressum': typeof ImpressumRoute
   '/learn': typeof LearnRoute
   '/library': typeof LibraryRoute
   '/methods': typeof MethodsRoute
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
   '/trainer': typeof TrainerRoute
   '/api/improve-prompt': typeof ApiImprovePromptRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/animations': typeof AnimationsRoute
+  '/impressum': typeof ImpressumRoute
   '/learn': typeof LearnRoute
   '/library': typeof LibraryRoute
   '/methods': typeof MethodsRoute
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
   '/trainer': typeof TrainerRoute
   '/api/improve-prompt': typeof ApiImprovePromptRoute
 }
@@ -75,9 +99,12 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/animations': typeof AnimationsRoute
+  '/impressum': typeof ImpressumRoute
   '/learn': typeof LearnRoute
   '/library': typeof LibraryRoute
   '/methods': typeof MethodsRoute
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
   '/trainer': typeof TrainerRoute
   '/api/improve-prompt': typeof ApiImprovePromptRoute
 }
@@ -86,27 +113,36 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/animations'
+    | '/impressum'
     | '/learn'
     | '/library'
     | '/methods'
+    | '/privacy'
+    | '/terms'
     | '/trainer'
     | '/api/improve-prompt'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/animations'
+    | '/impressum'
     | '/learn'
     | '/library'
     | '/methods'
+    | '/privacy'
+    | '/terms'
     | '/trainer'
     | '/api/improve-prompt'
   id:
     | '__root__'
     | '/'
     | '/animations'
+    | '/impressum'
     | '/learn'
     | '/library'
     | '/methods'
+    | '/privacy'
+    | '/terms'
     | '/trainer'
     | '/api/improve-prompt'
   fileRoutesById: FileRoutesById
@@ -114,9 +150,12 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AnimationsRoute: typeof AnimationsRoute
+  ImpressumRoute: typeof ImpressumRoute
   LearnRoute: typeof LearnRoute
   LibraryRoute: typeof LibraryRoute
   MethodsRoute: typeof MethodsRoute
+  PrivacyRoute: typeof PrivacyRoute
+  TermsRoute: typeof TermsRoute
   TrainerRoute: typeof TrainerRoute
   ApiImprovePromptRoute: typeof ApiImprovePromptRoute
 }
@@ -128,6 +167,20 @@ declare module '@tanstack/react-router' {
       path: '/trainer'
       fullPath: '/trainer'
       preLoaderRoute: typeof TrainerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/methods': {
@@ -149,6 +202,13 @@ declare module '@tanstack/react-router' {
       path: '/learn'
       fullPath: '/learn'
       preLoaderRoute: typeof LearnRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/impressum': {
+      id: '/impressum'
+      path: '/impressum'
+      fullPath: '/impressum'
+      preLoaderRoute: typeof ImpressumRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/animations': {
@@ -178,12 +238,25 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AnimationsRoute: AnimationsRoute,
+  ImpressumRoute: ImpressumRoute,
   LearnRoute: LearnRoute,
   LibraryRoute: LibraryRoute,
   MethodsRoute: MethodsRoute,
+  PrivacyRoute: PrivacyRoute,
+  TermsRoute: TermsRoute,
   TrainerRoute: TrainerRoute,
   ApiImprovePromptRoute: ApiImprovePromptRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
