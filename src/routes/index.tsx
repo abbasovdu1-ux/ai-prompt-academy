@@ -176,7 +176,7 @@ function Index() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.4, duration: 0.7 }}
+            transition={{ delay: 0.6, duration: 0.5 }}
             className="max-w-xl mx-auto text-zinc-400 text-lg md:text-xl font-light leading-relaxed"
           >
             Master the architecture of synthetic intelligence through high-fidelity curricula
