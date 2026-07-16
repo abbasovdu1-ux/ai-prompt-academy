@@ -4,13 +4,13 @@ import { motion } from "motion/react";
 export const Route = createFileRoute("/methods")({
   head: () => ({
     meta: [
-      { title: "Prompt Methods — SYNTHETIX Academy" },
+      { title: "Prompt Methods — SYNTHECS Academy" },
       {
         name: "description",
         content:
           "18 prompt engineering frameworks — RTF, RCTCO, Chain-of-Thought, Tree-of-Thoughts, ReAct, Reflexion and more — with structure and production-grade examples.",
       },
-      { property: "og:title", content: "Prompt Methods — SYNTHETIX Academy" },
+      { property: "og:title", content: "Prompt Methods — SYNTHECS Academy" },
       {
         property: "og:description",
         content:
@@ -354,7 +354,7 @@ function MethodsPage() {
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-10 py-5 backdrop-blur-md bg-black/50 border-b border-white/5">
         <Link to="/" className="flex items-center gap-3">
           <div className="size-2.5 bg-brand rounded-[1px]" />
-          <span className="text-sm font-extrabold tracking-tighter">SYNTHETIX</span>
+          <span className="text-sm font-extrabold tracking-tighter">SYNTHECS</span>
         </Link>
         <div className="hidden md:flex items-center gap-10 text-[11px] font-mono uppercase tracking-widest text-zinc-500">
           <Link to="/" className="hover:text-white transition-colors">Home</Link>
@@ -438,7 +438,7 @@ function MethodsPage() {
 
       <footer className="py-16 px-6 border-t border-white/5">
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] font-mono text-zinc-500 uppercase tracking-widest">
-          <Link to="/" className="text-xl font-extrabold tracking-tighter text-white normal-case">SYNTHETIX</Link>
+          <Link to="/" className="text-xl font-extrabold tracking-tighter text-white normal-case">SYNTHECS</Link>
           <div>Try what you learned in the <Link to="/trainer" className="text-white hover:text-brand-light">Trainer →</Link></div>
         </div>
       </footer>

@@ -111,7 +111,7 @@ function Index() {
             transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
             className="size-2.5 bg-brand rounded-[1px]"
           />
-          <span className="text-sm font-extrabold tracking-tighter">SYNTHETIX</span>
+          <span className="text-sm font-extrabold tracking-tighter">SYNTHECS</span>
         </div>
         <div className="hidden md:flex items-center gap-10 text-[11px] font-mono uppercase tracking-widest text-zinc-500">
           <Link to="/learn" className="hover:text-white transition-colors">Learn</Link>
@@ -168,7 +168,7 @@ function Index() {
 
           <h1 className="text-7xl md:text-9xl font-extrabold tracking-tighter leading-[0.9]">
             <span className="block">
-              <BlurWord text="SYNTHETIX" from="top" />
+              <BlurWord text="SYNTHECS" from="top" />
             </span>
             <span className="block text-white/80">
               <BlurWord text="ACADEMY" delay={0.35} from="bottom" />
@@ -445,7 +445,7 @@ function Index() {
       {/* Footer */}
       <footer id="footer" className="py-16 px-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 border-t border-white/5 pt-12">
-          <div className="text-xl font-extrabold tracking-tighter">SYNTHETIX</div>
+          <div className="text-xl font-extrabold tracking-tighter">SYNTHECS</div>
           <div className="flex items-center gap-8 text-[11px] font-mono text-zinc-500 uppercase tracking-widest">
             <Link to="/learn" className="hover:text-white transition-colors">Learn</Link>
             <Link to="/library" className="hover:text-white transition-colors">Library</Link>
@@ -453,7 +453,7 @@ function Index() {
             <Link to="/trainer" className="hover:text-white transition-colors">Trainer</Link>
           </div>
           <div className="text-[10px] font-mono text-zinc-600">
-            © 2026 SYNTHETIX INTELLECTUAL UNITS.
+            © 2026 SYNTHECS INTELLECTUAL UNITS.
           </div>
         </div>
       </footer>

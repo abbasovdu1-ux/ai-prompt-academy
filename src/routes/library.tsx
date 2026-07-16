@@ -6,13 +6,13 @@ export const Route = createFileRoute("/library")({
   component: LibraryPage,
   head: () => ({
     meta: [
-      { title: "Prompt Library — Synthetix Academy" },
+      { title: "Prompt Library — Synthecs Academy" },
       {
         name: "description",
         content:
           "A curated library of proven, ready-to-use AI prompts for writing, learning, coding, career, health and life admin. Copy, paste, adapt.",
       },
-      { property: "og:title", content: "Prompt Library — Synthetix Academy" },
+      { property: "og:title", content: "Prompt Library — Synthecs Academy" },
       {
         property: "og:description",
         content:
@@ -365,7 +365,7 @@ function LibraryPage() {
         <Link to="/" className="flex items-center gap-3">
           <div className="w-2 h-2 bg-white" />
           <span className="text-[11px] font-mono uppercase tracking-[0.25em] text-zinc-400">
-            Synthetix / Library
+            Synthecs / Library
           </span>
         </Link>
         <div className="flex items-center gap-6 text-[11px] font-mono uppercase tracking-widest text-zinc-500">

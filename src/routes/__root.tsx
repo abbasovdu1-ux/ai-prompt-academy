@@ -77,13 +77,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Synthetix — Master AI & Prompt Engineering" },
+      { title: "Synthecs — Master AI & Prompt Engineering" },
       {
         name: "description",
         content:
           "Learn to control AI with surgical precision. Deep-dive courses on prompt engineering, LLMs, generative art, and agent architectures.",
       },
-      { property: "og:title", content: "Synthetix — Master AI & Prompt Engineering" },
+      { property: "og:title", content: "Synthecs — Master AI & Prompt Engineering" },
       {
         property: "og:description",
         content:
