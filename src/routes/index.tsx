@@ -1,6 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from "motion/react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -8,24 +8,24 @@ export const Route = createFileRoute("/")({
 
 const modules = [
   {
-    tag: "01 / BASIC SYNTHESIS",
-    title: "Prompt Engineering I",
-    desc: "The fundamental linguistics of LLM interaction and basic latent space navigation.",
+    tag: "01 / FRAMEWORK",
+    title: "RTF — Role · Task · Format",
+    desc: "The simplest reliable prompt shape. Set a persona, state the task, pin the output format.",
   },
   {
-    tag: "02 / ARCHITECTURE",
-    title: "System Instructions",
-    desc: "Designing persistent personas and autonomous agent frameworks with high reliability.",
+    tag: "02 / FRAMEWORK",
+    title: "RCTCO — Constraint-first",
+    desc: "Role, Context, Task, Constraints, Output. The pattern behind production system prompts.",
   },
   {
-    tag: "03 / DATA MODELS",
-    title: "Context Windowing",
-    desc: "Advanced strategies for RAG, vector injection, and managing long-form synthetic memory.",
+    tag: "03 / REASONING",
+    title: "Chain-of-Thought",
+    desc: "Force the model to show its working before the answer. Fixes math, logic and multi-step tasks.",
   },
   {
-    tag: "04 / INTEGRATION",
-    title: "API Orchestration",
-    desc: "Bridging the gap between raw prompts and production-ready software deployments.",
+    tag: "04 / AGENTS",
+    title: "ReAct + Few-Shot",
+    desc: "Interleave reasoning with tool calls, and teach style-by-example when rules are hard to write.",
   },
 ];
 
@@ -115,9 +115,9 @@ function Index() {
         </div>
         <div className="hidden md:flex items-center gap-10 text-[11px] font-mono uppercase tracking-widest text-zinc-500">
           <a href="#curriculum" className="hover:text-white transition-colors">Curriculum</a>
+          <Link to="/methods" className="hover:text-white transition-colors">Methods</Link>
           <a href="#lab" className="hover:text-white transition-colors">Prompt Lab</a>
-          <a href="/trainer" className="hover:text-white transition-colors">Trainer</a>
-          <a href="#footer" className="hover:text-white transition-colors">System</a>
+          <Link to="/trainer" className="hover:text-white transition-colors">Trainer</Link>
         </div>
         <a
           href="#curriculum"
@@ -261,12 +261,12 @@ function Index() {
                 {m.title}
               </h3>
               <p className="text-zinc-400 font-light mb-12">{m.desc}</p>
-              <a
-                href="#"
+              <Link
+                to="/methods"
                 className="text-sm border-b border-white/20 pb-1 hover:border-white transition-all inline-block"
               >
                 Explore Syllabus →
-              </a>
+              </Link>
               <motion.div
                 className="absolute -bottom-16 -right-16 size-40 bg-brand/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"
               />
@@ -375,9 +375,9 @@ function Index() {
           <div className="text-xl font-extrabold tracking-tighter">SYNTHETIX</div>
           <div className="flex items-center gap-8 text-[11px] font-mono text-zinc-500 uppercase tracking-widest">
             <a href="#curriculum" className="hover:text-white transition-colors">Curriculum</a>
+            <Link to="/methods" className="hover:text-white transition-colors">Methods</Link>
             <a href="#lab" className="hover:text-white transition-colors">Prompt Lab</a>
-            <a href="#" className="hover:text-white transition-colors">Privacy</a>
-            <a href="#" className="hover:text-white transition-colors">System Status</a>
+            <Link to="/trainer" className="hover:text-white transition-colors">Trainer</Link>
           </div>
           <div className="text-[10px] font-mono text-zinc-600">
             © 2026 SYNTHETIX INTELLECTUAL UNITS.
