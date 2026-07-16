@@ -261,12 +261,12 @@ function Index() {
                 {m.title}
               </h3>
               <p className="text-zinc-400 font-light mb-12">{m.desc}</p>
-              <a
-                href="#"
+              <Link
+                to="/methods"
                 className="text-sm border-b border-white/20 pb-1 hover:border-white transition-all inline-block"
               >
                 Explore Syllabus →
-              </a>
+              </Link>
               <motion.div
                 className="absolute -bottom-16 -right-16 size-40 bg-brand/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"
               />
