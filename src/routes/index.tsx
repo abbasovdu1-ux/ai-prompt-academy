@@ -242,7 +242,9 @@ function Index() {
               synthetic architect.
             </p>
           </div>
-          <div className="text-sm font-mono text-brand-light">[ 04 Modules Available ]</div>
+          <Link to="/methods" className="text-sm font-mono text-brand-light hover:text-white transition-colors">
+            [ 04 FEATURED · 18 TOTAL — SEE ALL → ]
+          </Link>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10 border border-white/10">
