@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as AnimationsRouteImport } from './routes/animations'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApiImprovePromptRouteImport } from './routes/api.improve-prompt'
 
 const AnimationsRoute = AnimationsRouteImport.update({
   id: '/animations',
@@ -22,31 +23,40 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiImprovePromptRoute = ApiImprovePromptRouteImport.update({
+  id: '/api/improve-prompt',
+  path: '/api/improve-prompt',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/animations': typeof AnimationsRoute
+  '/api/improve-prompt': typeof ApiImprovePromptRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/animations': typeof AnimationsRoute
+  '/api/improve-prompt': typeof ApiImprovePromptRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/animations': typeof AnimationsRoute
+  '/api/improve-prompt': typeof ApiImprovePromptRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/animations'
+  fullPaths: '/' | '/animations' | '/api/improve-prompt'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/animations'
-  id: '__root__' | '/' | '/animations'
+  to: '/' | '/animations' | '/api/improve-prompt'
+  id: '__root__' | '/' | '/animations' | '/api/improve-prompt'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AnimationsRoute: typeof AnimationsRoute
+  ApiImprovePromptRoute: typeof ApiImprovePromptRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +75,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/improve-prompt': {
+      id: '/api/improve-prompt'
+      path: '/api/improve-prompt'
+      fullPath: '/api/improve-prompt'
+      preLoaderRoute: typeof ApiImprovePromptRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AnimationsRoute: AnimationsRoute,
+  ApiImprovePromptRoute: ApiImprovePromptRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
