@@ -114,17 +114,17 @@ function Index() {
           <span className="text-sm font-extrabold tracking-tighter">SYNTHETIX</span>
         </div>
         <div className="hidden md:flex items-center gap-10 text-[11px] font-mono uppercase tracking-widest text-zinc-500">
-          <a href="#curriculum" className="hover:text-white transition-colors">Curriculum</a>
+          <Link to="/learn" className="hover:text-white transition-colors">Learn</Link>
+          <Link to="/library" className="hover:text-white transition-colors">Library</Link>
           <Link to="/methods" className="hover:text-white transition-colors">Methods</Link>
-          <a href="#lab" className="hover:text-white transition-colors">Prompt Lab</a>
           <Link to="/trainer" className="hover:text-white transition-colors">Trainer</Link>
         </div>
-        <a
-          href="#curriculum"
+        <Link
+          to="/learn"
           className="text-[11px] font-mono uppercase tracking-widest border border-white/15 px-4 py-2 rounded-sm hover:bg-white hover:text-black transition-colors"
         >
-          Enroll →
-        </a>
+          Start learning →
+        </Link>
       </nav>
 
       {/* Hero */}
@@ -193,22 +193,22 @@ function Index() {
             transition={{ delay: 0.75, duration: 0.5 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4"
           >
-            <motion.a
-              href="#curriculum"
-              whileHover={{ scale: 1.03, y: -2 }}
-              whileTap={{ scale: 0.97 }}
-              className="px-8 py-4 bg-white text-black font-bold rounded-sm hover:bg-brand-light transition-colors"
-            >
-              Begin Mastery
-            </motion.a>
-            <motion.a
-              href="#curriculum"
-              whileHover={{ scale: 1.03, y: -2 }}
-              whileTap={{ scale: 0.97 }}
-              className="px-8 py-4 border border-white/10 backdrop-blur-md rounded-sm hover:bg-white/5 transition-colors"
-            >
-              View Curriculum
-            </motion.a>
+            <motion.div whileHover={{ scale: 1.03, y: -2 }} whileTap={{ scale: 0.97 }}>
+              <Link
+                to="/learn"
+                className="inline-block px-8 py-4 bg-white text-black font-bold rounded-sm hover:bg-brand-light transition-colors"
+              >
+                Start learning
+              </Link>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.03, y: -2 }} whileTap={{ scale: 0.97 }}>
+              <Link
+                to="/library"
+                className="inline-block px-8 py-4 border border-white/10 backdrop-blur-md rounded-sm hover:bg-white/5 transition-colors"
+              >
+                Browse prompt library
+              </Link>
+            </motion.div>
           </motion.div>
         </div>
 
@@ -224,8 +224,80 @@ function Index() {
         </motion.div>
       </motion.section>
 
+      {/* Three ways to learn */}
+      <section className="py-32 px-6 max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7 }}
+          className="mb-16 max-w-2xl"
+        >
+          <div className="text-xs font-mono text-zinc-500 mb-4">// HOW IT WORKS</div>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mb-4">
+            Three ways to get better at AI.
+          </h2>
+          <p className="text-zinc-400 font-light">
+            Pick where you are. Everything is free to browse and built for everyday
+            users — not researchers.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10 border border-white/10">
+          {[
+            {
+              tag: "01 · IF YOU'RE NEW",
+              title: "Interactive lessons",
+              desc: "Read the idea, see a before/after, then rewrite a real prompt yourself. Instant feedback checks the essentials.",
+              cta: "Open lessons →",
+              to: "/learn" as const,
+            },
+            {
+              tag: "02 · IF YOU NEED IT NOW",
+              title: "Prompt library",
+              desc: "Copy-paste prompts for email, studying, job hunt, coding, meal planning. Fill in the [brackets], you're done.",
+              cta: "Browse library →",
+              to: "/library" as const,
+            },
+            {
+              tag: "03 · IF YOU HAVE A TASK",
+              title: "Prompt Trainer",
+              desc: "Type your rough idea, pick an AI model, get a rewritten pro-grade prompt tuned to that model — with reasons why.",
+              cta: "Open trainer →",
+              to: "/trainer" as const,
+            },
+          ].map((c, i) => (
+            <motion.div
+              key={c.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.6, delay: i * 0.08 }}
+              className="bg-black p-8 group relative overflow-hidden flex flex-col"
+            >
+              <div className="text-[10px] font-mono text-zinc-500 tracking-widest mb-6">
+                {c.tag}
+              </div>
+              <h3 className="text-2xl font-bold tracking-tight mb-3 group-hover:text-brand-light transition-colors">
+                {c.title}
+              </h3>
+              <p className="text-zinc-400 font-light text-sm leading-relaxed mb-8 flex-1">
+                {c.desc}
+              </p>
+              <Link
+                to={c.to}
+                className="text-sm border-b border-white/20 pb-1 hover:border-white transition-all inline-block self-start"
+              >
+                {c.cta}
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
       {/* Curriculum */}
-      <section id="curriculum" className="py-32 px-6 max-w-7xl mx-auto">
+      <section id="curriculum" className="py-32 px-6 max-w-7xl mx-auto border-t border-white/5">
+
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -375,9 +447,9 @@ function Index() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 border-t border-white/5 pt-12">
           <div className="text-xl font-extrabold tracking-tighter">SYNTHETIX</div>
           <div className="flex items-center gap-8 text-[11px] font-mono text-zinc-500 uppercase tracking-widest">
-            <a href="#curriculum" className="hover:text-white transition-colors">Curriculum</a>
+            <Link to="/learn" className="hover:text-white transition-colors">Learn</Link>
+            <Link to="/library" className="hover:text-white transition-colors">Library</Link>
             <Link to="/methods" className="hover:text-white transition-colors">Methods</Link>
-            <a href="#lab" className="hover:text-white transition-colors">Prompt Lab</a>
             <Link to="/trainer" className="hover:text-white transition-colors">Trainer</Link>
           </div>
           <div className="text-[10px] font-mono text-zinc-600">
