@@ -20,15 +20,75 @@ const MODEL_STYLES: Record<string, string> = {
     "Perplexity. Prefers research-oriented questions with clear scope, time range, sources preference, and desired depth. Reward citation-friendly phrasing.",
 };
 
+// -----------------------------------------------------------------------------
+// Best-effort per-IP rate limit + input size cap. Documented in README.md
+// under "Abuse protection". This is in-memory only — a serverless cold start
+// resets it. For production traffic, front the endpoint with Cloudflare Rate
+// Limiting Rules or a Turnstile challenge.
+// -----------------------------------------------------------------------------
+const WINDOW_MS = 60 * 60 * 1000; // 1 hour
+const MAX_REQUESTS_PER_WINDOW = 30;
+const MAX_TASK_LENGTH = 4000;
+const hits = new Map<string, { count: number; resetAt: number }>();
+
+function getClientIp(request: Request): string {
+  const h = request.headers;
+  return (
+    h.get("cf-connecting-ip") ??
+    h.get("x-real-ip") ??
+    h.get("x-forwarded-for")?.split(",")[0]?.trim() ??
+    "unknown"
+  );
+}
+
+function checkRateLimit(ip: string): { ok: boolean; retryAfter?: number } {
+  const now = Date.now();
+  const record = hits.get(ip);
+  if (!record || record.resetAt < now) {
+    hits.set(ip, { count: 1, resetAt: now + WINDOW_MS });
+    return { ok: true };
+  }
+  if (record.count >= MAX_REQUESTS_PER_WINDOW) {
+    return { ok: false, retryAfter: Math.ceil((record.resetAt - now) / 1000) };
+  }
+  record.count += 1;
+  return { ok: true };
+}
+
 export const Route = createFileRoute("/api/improve-prompt")({
   server: {
     handlers: {
       POST: async ({ request }) => {
-        const { task, model } = (await request.json()) as Body;
+        const ip = getClientIp(request);
+        const limit = checkRateLimit(ip);
+        if (!limit.ok) {
+          return new Response("Rate limit exceeded. Try again later.", {
+            status: 429,
+            headers: { "Retry-After": String(limit.retryAfter ?? 3600) },
+          });
+        }
+
+        let body: Body;
+        try {
+          body = (await request.json()) as Body;
+        } catch {
+          return new Response("Invalid JSON body", { status: 400 });
+        }
+        const { task, model } = body;
         if (!task || !model) {
           return new Response("Missing task or model", { status: 400 });
         }
-        const style = MODEL_STYLES[model] ?? MODEL_STYLES.chatgpt;
+        if (typeof task !== "string" || task.length > MAX_TASK_LENGTH) {
+          return new Response(
+            `Task must be a string of at most ${MAX_TASK_LENGTH} characters`,
+            { status: 400 },
+          );
+        }
+        if (typeof model !== "string" || !(model in MODEL_STYLES)) {
+          return new Response("Unknown model", { status: 400 });
+        }
+
+        const style = MODEL_STYLES[model];
         const key = process.env.LOVABLE_API_KEY;
         if (!key) return new Response("Missing LOVABLE_API_KEY", { status: 500 });
 
@@ -66,6 +126,7 @@ CRITICAL LANGUAGE RULE: Detect the language of the user's task text below and wr
           return Response.json(parsed);
         } catch (err) {
           const msg = err instanceof Error ? err.message : "Unknown error";
+          console.error("[api/improve-prompt] Upstream AI error:", msg, { ip, model });
           return new Response(msg, { status: 500 });
         }
       },
