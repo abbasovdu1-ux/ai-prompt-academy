@@ -13,24 +13,25 @@ function ImpressumPage() {
       </a>
       <h1 className="mt-8 text-4xl font-bold">Impressum</h1>
       <section className="prose prose-invert mt-10 max-w-none">
+        <h2>Anbieter</h2>
         <p>
-          <strong>IMPORTANT:</strong> Complete the following fields with the operator’s real legal
-          details before publishing in Germany or the EU.
+          Toghrul Abbasov
+          <br />
+          Siemensstrasse 6
+          <br />
+          12459 Berlin
+          <br />
+          Deutschland
+          <br />
+          CEO &amp; Founder, Synthecs Academy
         </p>
-        <h2>Provider</h2>
+        <h2>Kontakt</h2>
         <p>
-          [LEGAL NAME]
-          <br />
-          [STREET AND HOUSE NUMBER]
-          <br />
-          [POSTCODE AND CITY]
-          <br />
-          [COUNTRY]
+          E-Mail: <a href="mailto:toghrulabbasov7@gmail.com">toghrulabbasov7@gmail.com</a>
         </p>
-        <h2>Contact</h2>
-        <p>Email: [CONTACT EMAIL]</p>
-        <p>Name: Toghrul Abbasov</p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/toghrul-abbasov-10a24534a/" target="_blank" rel="noreferrer">linkedin.com/in/toghrul-abbasov-10a24534a</a></p>
+        <p>
+          LinkedIn: <a href="https://www.linkedin.com/in/toghrul-abbasov-10a24534a/" target="_blank" rel="noreferrer">linkedin.com/in/toghrul-abbasov-10a24534a</a>
+        </p>
       </section>
     </main>
   );
