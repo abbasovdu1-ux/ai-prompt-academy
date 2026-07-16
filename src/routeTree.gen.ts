@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TrainerRouteImport } from './routes/trainer'
 import { Route as MethodsRouteImport } from './routes/methods'
+import { Route as LearnRouteImport } from './routes/learn'
 import { Route as AnimationsRouteImport } from './routes/animations'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiImprovePromptRouteImport } from './routes/api.improve-prompt'
@@ -23,6 +24,11 @@ const TrainerRoute = TrainerRouteImport.update({
 const MethodsRoute = MethodsRouteImport.update({
   id: '/methods',
   path: '/methods',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LearnRoute = LearnRouteImport.update({
+  id: '/learn',
+  path: '/learn',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AnimationsRoute = AnimationsRouteImport.update({
@@ -44,6 +50,7 @@ const ApiImprovePromptRoute = ApiImprovePromptRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/animations': typeof AnimationsRoute
+  '/learn': typeof LearnRoute
   '/methods': typeof MethodsRoute
   '/trainer': typeof TrainerRoute
   '/api/improve-prompt': typeof ApiImprovePromptRoute
@@ -51,6 +58,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/animations': typeof AnimationsRoute
+  '/learn': typeof LearnRoute
   '/methods': typeof MethodsRoute
   '/trainer': typeof TrainerRoute
   '/api/improve-prompt': typeof ApiImprovePromptRoute
@@ -59,6 +67,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/animations': typeof AnimationsRoute
+  '/learn': typeof LearnRoute
   '/methods': typeof MethodsRoute
   '/trainer': typeof TrainerRoute
   '/api/improve-prompt': typeof ApiImprovePromptRoute
@@ -68,15 +77,23 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/animations'
+    | '/learn'
     | '/methods'
     | '/trainer'
     | '/api/improve-prompt'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/animations' | '/methods' | '/trainer' | '/api/improve-prompt'
+  to:
+    | '/'
+    | '/animations'
+    | '/learn'
+    | '/methods'
+    | '/trainer'
+    | '/api/improve-prompt'
   id:
     | '__root__'
     | '/'
     | '/animations'
+    | '/learn'
     | '/methods'
     | '/trainer'
     | '/api/improve-prompt'
@@ -85,6 +102,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AnimationsRoute: typeof AnimationsRoute
+  LearnRoute: typeof LearnRoute
   MethodsRoute: typeof MethodsRoute
   TrainerRoute: typeof TrainerRoute
   ApiImprovePromptRoute: typeof ApiImprovePromptRoute
@@ -104,6 +122,13 @@ declare module '@tanstack/react-router' {
       path: '/methods'
       fullPath: '/methods'
       preLoaderRoute: typeof MethodsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learn': {
+      id: '/learn'
+      path: '/learn'
+      fullPath: '/learn'
+      preLoaderRoute: typeof LearnRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/animations': {
@@ -133,6 +158,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AnimationsRoute: AnimationsRoute,
+  LearnRoute: LearnRoute,
   MethodsRoute: MethodsRoute,
   TrainerRoute: TrainerRoute,
   ApiImprovePromptRoute: ApiImprovePromptRoute,
