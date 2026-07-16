@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
@@ -8,24 +8,24 @@ export const Route = createFileRoute("/")({
 
 const modules = [
   {
-    tag: "01 / BASIC SYNTHESIS",
-    title: "Prompt Engineering I",
-    desc: "The fundamental linguistics of LLM interaction and basic latent space navigation.",
+    tag: "01 / FRAMEWORK",
+    title: "RTF — Role · Task · Format",
+    desc: "The simplest reliable prompt shape. Set a persona, state the task, pin the output format.",
   },
   {
-    tag: "02 / ARCHITECTURE",
-    title: "System Instructions",
-    desc: "Designing persistent personas and autonomous agent frameworks with high reliability.",
+    tag: "02 / FRAMEWORK",
+    title: "RCTCO — Constraint-first",
+    desc: "Role, Context, Task, Constraints, Output. The pattern behind production system prompts.",
   },
   {
-    tag: "03 / DATA MODELS",
-    title: "Context Windowing",
-    desc: "Advanced strategies for RAG, vector injection, and managing long-form synthetic memory.",
+    tag: "03 / REASONING",
+    title: "Chain-of-Thought",
+    desc: "Force the model to show its working before the answer. Fixes math, logic and multi-step tasks.",
   },
   {
-    tag: "04 / INTEGRATION",
-    title: "API Orchestration",
-    desc: "Bridging the gap between raw prompts and production-ready software deployments.",
+    tag: "04 / AGENTS",
+    title: "ReAct + Few-Shot",
+    desc: "Interleave reasoning with tool calls, and teach style-by-example when rules are hard to write.",
   },
 ];
 
