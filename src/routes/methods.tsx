@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
+import { Logo } from "@/components/Logo";
 
 export const Route = createFileRoute("/methods")({
   head: () => ({
@@ -352,8 +353,8 @@ function MethodsPage() {
   return (
     <div className="min-h-screen bg-black text-white font-sans">
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-10 py-5 backdrop-blur-md bg-black/50 border-b border-white/5">
-        <Link to="/" className="flex items-center gap-3">
-          <div className="size-2.5 bg-brand rounded-[1px]" />
+        <Link to="/" className="flex items-center gap-2.5">
+          <Logo size={26} />
           <span className="text-sm font-extrabold tracking-tighter">SYNTHECS</span>
         </Link>
         <div className="hidden md:flex items-center gap-10 text-[11px] font-mono uppercase tracking-widest text-zinc-500">
@@ -438,7 +439,10 @@ function MethodsPage() {
 
       <footer className="py-16 px-6 border-t border-white/5">
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] font-mono text-zinc-500 uppercase tracking-widest">
-          <Link to="/" className="text-xl font-extrabold tracking-tighter text-white normal-case">SYNTHECS</Link>
+          <Link to="/" className="flex items-center gap-2.5 text-xl font-extrabold tracking-tighter text-white normal-case">
+            <Logo size={24} />
+            SYNTHECS
+          </Link>
           <div>Try what you learned in the <Link to="/trainer" className="text-white hover:text-brand-light">Trainer →</Link></div>
         </div>
       </footer>
