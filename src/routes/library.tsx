@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { useMemo, useState } from "react";
+import { useI18n } from "@/lib/i18n";
 
 export const Route = createFileRoute("/library")({
   component: LibraryPage,
@@ -327,6 +328,7 @@ Keep it under 600 words. No filler like "this book is interesting because…".`,
 const CATEGORIES = ["All", "Writing", "Learning", "Career", "Coding", "Life", "Research"] as const;
 
 function LibraryPage() {
+  const { t } = useI18n();
   const [cat, setCat] = useState<(typeof CATEGORIES)[number]>("All");
   const [q, setQ] = useState("");
   const [copiedId, setCopiedId] = useState<string | null>(null);
@@ -369,9 +371,9 @@ function LibraryPage() {
           </span>
         </Link>
         <div className="flex items-center gap-6 text-[11px] font-mono uppercase tracking-widest text-zinc-500">
-          <Link to="/learn" className="hover:text-white">Learn</Link>
-          <Link to="/methods" className="hover:text-white">Methods</Link>
-          <Link to="/trainer" className="hover:text-white">Trainer</Link>
+          <Link to="/learn" className="hover:text-white">{t("learn")}</Link>
+          <Link to="/methods" className="hover:text-white">{t("methods")}</Link>
+          <Link to="/trainer" className="hover:text-white">{t("trainer")}</Link>
           <Link
             to="/"
             className="border border-white/15 px-4 py-2 rounded-sm hover:bg-white hover:text-black transition-colors"

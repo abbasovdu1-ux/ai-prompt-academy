@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from "motion/react";
 import { useEffect, useRef } from "react";
 import { Logo } from "@/components/Logo";
+import { useI18n } from "@/lib/i18n";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -61,6 +62,7 @@ function BlurWord({
 
 
 function Index() {
+  const { t } = useI18n();
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress: heroP } = useScroll({
     target: heroRef,
@@ -111,10 +113,10 @@ function Index() {
           <span className="text-sm font-extrabold tracking-tighter">SYNTHECS ACADEMY</span>
         </Link>
         <div className="hidden md:flex items-center gap-10 text-[11px] font-mono uppercase tracking-widest text-zinc-500">
-          <Link to="/learn" className="hover:text-white transition-colors">Learn</Link>
-          <Link to="/library" className="hover:text-white transition-colors">Library</Link>
-          <Link to="/methods" className="hover:text-white transition-colors">Methods</Link>
-          <Link to="/trainer" className="hover:text-white transition-colors">Trainer</Link>
+          <Link to="/learn" className="hover:text-white transition-colors">{t("learn")}</Link>
+          <Link to="/library" className="hover:text-white transition-colors">{t("library")}</Link>
+          <Link to="/methods" className="hover:text-white transition-colors">{t("methods")}</Link>
+          <Link to="/trainer" className="hover:text-white transition-colors">{t("trainer")}</Link>
         </div>
         <Link
           to="/learn"
@@ -159,7 +161,7 @@ function Index() {
           >
             <span className="size-1.5 rounded-full bg-brand animate-pulse" />
             <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-zinc-400">
-              Academy 2.0 Live
+              {t("academyLive")}
             </span>
           </motion.div>
 
@@ -180,8 +182,7 @@ function Index() {
             transition={{ delay: 0.6, duration: 0.5 }}
             className="max-w-xl mx-auto text-zinc-400 text-lg md:text-xl font-light leading-relaxed"
           >
-            Master the architecture of synthetic intelligence through high-fidelity curricula
-            and hands-on prompt engineering.
+            {t("heroDescription")}
           </motion.p>
 
           <motion.div
@@ -195,7 +196,7 @@ function Index() {
                 to="/learn"
                 className="inline-block px-8 py-4 bg-white text-black font-bold rounded-sm hover:bg-brand-light transition-colors"
               >
-                Start learning
+                {t("startLearning")}
               </Link>
             </motion.div>
             <motion.div whileHover={{ scale: 1.03, y: -2 }} whileTap={{ scale: 0.97 }}>
@@ -215,7 +216,7 @@ function Index() {
           className="absolute bottom-12 flex flex-col items-center space-y-2 opacity-40"
         >
           <span className="text-[10px] uppercase tracking-[0.3em] font-mono">
-            Scroll to Explore
+            {t("scrollExplore")}
           </span>
           <div className="w-px h-12 bg-gradient-to-b from-white to-transparent" />
         </motion.div>
@@ -230,9 +231,9 @@ function Index() {
           transition={{ duration: 0.7 }}
           className="mb-16 max-w-2xl"
         >
-          <div className="text-xs font-mono text-zinc-500 mb-4">// HOW IT WORKS</div>
+          <div className="text-xs font-mono text-zinc-500 mb-4">{t("howItWorks")}</div>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mb-4">
-            Three ways to get better at AI.
+            {t("betterAtAI")}
           </h2>
           <p className="text-zinc-400 font-light">
             Pick where you are. Everything is free to browse and built for everyday
@@ -447,10 +448,10 @@ function Index() {
             <div className="text-xl font-extrabold tracking-tighter">SYNTHECS ACADEMY</div>
           </div>
           <div className="flex items-center gap-8 text-[11px] font-mono text-zinc-500 uppercase tracking-widest">
-            <Link to="/learn" className="hover:text-white transition-colors">Learn</Link>
-            <Link to="/library" className="hover:text-white transition-colors">Library</Link>
-            <Link to="/methods" className="hover:text-white transition-colors">Methods</Link>
-            <Link to="/trainer" className="hover:text-white transition-colors">Trainer</Link>
+          <Link to="/learn" className="hover:text-white transition-colors">{t("learn")}</Link>
+          <Link to="/library" className="hover:text-white transition-colors">{t("library")}</Link>
+          <Link to="/methods" className="hover:text-white transition-colors">{t("methods")}</Link>
+          <Link to="/trainer" className="hover:text-white transition-colors">{t("trainer")}</Link>
           </div>
           <div className="text-[10px] font-mono text-zinc-600">
             © 2026 SYNTHECS ACADEMY.

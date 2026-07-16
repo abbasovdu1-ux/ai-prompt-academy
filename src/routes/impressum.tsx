@@ -29,6 +29,8 @@ function ImpressumPage() {
         </p>
         <h2>Contact</h2>
         <p>Email: [CONTACT EMAIL]</p>
+        <p>Name: Toghrul Abbasov</p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/toghrul-abbasov-10a24534a/" target="_blank" rel="noreferrer">linkedin.com/in/toghrul-abbasov-10a24534a</a></p>
       </section>
     </main>
   );

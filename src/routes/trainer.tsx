@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
+import { useI18n } from "@/lib/i18n";
 
 export const Route = createFileRoute("/trainer")({
   component: Trainer,
@@ -27,6 +28,7 @@ const MODELS = [
 type Result = { improved: string; tips: string[] };
 
 function Trainer() {
+  const { t } = useI18n();
   const [task, setTask] = useState("");
   const [model, setModel] = useState("chatgpt");
   const [loading, setLoading] = useState(false);

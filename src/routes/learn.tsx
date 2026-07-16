@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "motion/react";
 import { useMemo, useState } from "react";
+import { useI18n } from "@/lib/i18n";
 
 export const Route = createFileRoute("/learn")({
   component: LearnPage,
@@ -215,6 +216,7 @@ const LESSONS: Lesson[] = [
 const LEVELS = ["All", "Basics", "Structure", "Reasoning", "Style"] as const;
 
 function LearnPage() {
+  const { t } = useI18n();
   const [filter, setFilter] = useState<(typeof LEVELS)[number]>("All");
   const [openId, setOpenId] = useState<string | null>(null);
 
@@ -242,9 +244,9 @@ function LearnPage() {
           </span>
         </Link>
         <div className="flex items-center gap-6 text-[11px] font-mono uppercase tracking-widest text-zinc-500">
-          <Link to="/library" className="hover:text-white">Library</Link>
-          <Link to="/methods" className="hover:text-white">Methods</Link>
-          <Link to="/trainer" className="hover:text-white">Trainer</Link>
+          <Link to="/library" className="hover:text-white">{t("library")}</Link>
+          <Link to="/methods" className="hover:text-white">{t("methods")}</Link>
+          <Link to="/trainer" className="hover:text-white">{t("trainer")}</Link>
           <Link
             to="/"
             className="border border-white/15 px-4 py-2 rounded-sm hover:bg-white hover:text-black transition-colors"

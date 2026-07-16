@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { Logo } from "@/components/Logo";
+import { useI18n } from "@/lib/i18n";
 
 export const Route = createFileRoute("/methods")({
   head: () => ({
@@ -350,6 +351,7 @@ Write me the prompt (targeting GPT-5). Then list 3 failure modes it explicitly g
 ];
 
 function MethodsPage() {
+  const { t } = useI18n();
   return (
     <div className="min-h-screen bg-black text-white font-sans">
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-10 py-5 backdrop-blur-md bg-black/50 border-b border-white/5">
@@ -358,9 +360,9 @@ function MethodsPage() {
           <span className="text-sm font-extrabold tracking-tighter">SYNTHECS ACADEMY</span>
         </Link>
         <div className="hidden md:flex items-center gap-10 text-[11px] font-mono uppercase tracking-widest text-zinc-500">
-          <Link to="/" className="hover:text-white transition-colors">Home</Link>
-          <Link to="/methods" className="text-white">Methods</Link>
-          <Link to="/trainer" className="hover:text-white transition-colors">Trainer</Link>
+          <Link to="/" className="hover:text-white transition-colors">{t("home")}</Link>
+          <Link to="/methods" className="text-white">{t("methods")}</Link>
+          <Link to="/trainer" className="hover:text-white transition-colors">{t("trainer")}</Link>
         </div>
         <Link
           to="/trainer"
