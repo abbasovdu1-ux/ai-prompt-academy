@@ -17,9 +17,11 @@ function ImpressumPage() {
         <p>
           Toghrul Abbasov
           <br />
-          Siemensstrasse 6
+          Siemensstraße 6
           <br />
           12459 Berlin
+          <br />
+          Bezirk Treptow-Köpenick
           <br />
           Deutschland
           <br />
