@@ -29,15 +29,24 @@ const modules = [
   },
 ];
 
-function SplitWord({ text, delay = 0 }: { text: string; delay?: number }) {
+function SplitWord({
+  text,
+  delay = 0,
+  from = "bottom",
+}: {
+  text: string;
+  delay?: number;
+  from?: "top" | "bottom";
+}) {
+  const y = from === "top" ? -80 : 80;
   return (
     <span className="inline-block">
       {text.split("").map((c, i) => (
         <motion.span
           key={i}
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: delay + i * 0.025, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ delay: delay + i * 0.035, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="inline-block will-change-transform"
         >
           {c === " " ? "\u00A0" : c}
@@ -46,6 +55,7 @@ function SplitWord({ text, delay = 0 }: { text: string; delay?: number }) {
     </span>
   );
 }
+
 
 
 function Index() {
