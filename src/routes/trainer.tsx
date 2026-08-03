@@ -18,11 +18,11 @@ export const Route = createFileRoute("/trainer")({
 });
 
 const MODELS = [
-  { id: "chatgpt", label: "ChatGPT", sub: "Target style · GPT", accent: "from-emerald-400/40 to-emerald-600/10" },
-  { id: "claude", label: "Claude", sub: "Target style · Claude", accent: "from-orange-400/40 to-orange-600/10" },
-  { id: "gemini", label: "Gemini", sub: "Target style · Gemini 3.1", accent: "from-sky-400/40 to-sky-600/10" },
-  { id: "midjourney", label: "Midjourney", sub: "Target style · Image", accent: "from-fuchsia-400/40 to-fuchsia-600/10" },
-  { id: "perplexity", label: "Perplexity", sub: "Target style · Research", accent: "from-cyan-400/40 to-cyan-600/10" },
+  { id: "chatgpt", label: "ChatGPT", accent: "from-emerald-400/40 to-emerald-600/10" },
+  { id: "claude", label: "Claude", accent: "from-orange-400/40 to-orange-600/10" },
+  { id: "gemini", label: "Gemini", accent: "from-sky-400/40 to-sky-600/10" },
+  { id: "midjourney", label: "Midjourney", accent: "from-fuchsia-400/40 to-fuchsia-600/10" },
+  { id: "perplexity", label: "Perplexity", accent: "from-cyan-400/40 to-cyan-600/10" },
 ];
 
 type Result = { improved: string; tips: string[] };
@@ -106,6 +106,10 @@ function Trainer() {
           Rewrite your prompt <br />
           <span className="text-zinc-500">tuned to any model.</span>
         </h1>
+        <div className="mt-7 inline-flex items-center gap-2 rounded-full border border-sky-400/30 bg-sky-400/10 px-3 py-1.5 text-xs font-mono uppercase tracking-widest text-sky-200">
+          <span className="size-1.5 rounded-full bg-sky-300" />
+          AI engine: Gemini 3.1 Flash-Lite
+        </div>
         <p className="mt-6 max-w-xl text-zinc-400 text-sm md:text-base leading-relaxed">
           Describe what you want. Pick the AI you plan to use. We rewrite it into a
           production-grade prompt and explain why it works.
@@ -115,7 +119,7 @@ function Trainer() {
       <section className="relative px-6 md:px-10 max-w-6xl mx-auto pb-32">
         <form onSubmit={handleSubmit} className="border border-white/10 bg-white/[0.02] backdrop-blur-sm">
           <div className="p-6 md:p-8 border-b border-white/10">
-            <label className="block text-[10px] font-mono uppercase tracking-[0.25em] text-zinc-500 mb-3">
+            <label className="block text-sm font-mono uppercase tracking-[0.2em] text-zinc-200 mb-4">
               01 / Your task
             </label>
             <textarea
@@ -128,10 +132,10 @@ function Trainer() {
           </div>
 
           <div className="p-6 md:p-8 border-b border-white/10">
-            <label className="block text-[10px] font-mono uppercase tracking-[0.25em] text-zinc-500 mb-2">
-              02 / Target AI style
+            <label className="block text-sm font-mono uppercase tracking-[0.2em] text-zinc-200 mb-2">
+              02 / Target model
             </label>
-            <p className="mb-4 text-xs text-zinc-600">Powered by Gemini 3.1 Flash-Lite · tuned for your target model</p>
+            <p className="mb-5 text-sm text-zinc-400">Choose the AI you want the prompt to work with.</p>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-2">
               {MODELS.map((m) => {
                 const active = model === m.id;
@@ -153,11 +157,6 @@ function Trainer() {
                     )}
                     <div className="relative">
                       <div className="text-sm font-semibold">{m.label}</div>
-                      <div className={`text-[10px] font-mono uppercase tracking-widest mt-1 ${
-                        active ? "text-black/60" : "text-zinc-500"
-                      }`}>
-                        {m.sub}
-                      </div>
                     </div>
                   </button>
                 );
