@@ -135,7 +135,7 @@ function Trainer() {
             <label className="block text-xs font-mono uppercase tracking-[0.2em] text-zinc-300 mb-2">
               02 / Target model
             </label>
-            <p className="mb-5 text-sm text-zinc-400">Choose the AI you’ll use this prompt with.</p>
+            <p className="mb-5 text-sm text-zinc-400">Choose the AI tool, where you will use this prompt.</p>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
               {MODELS.map((m) => {
                 const active = model === m.id;
