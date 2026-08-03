@@ -18,11 +18,11 @@ export const Route = createFileRoute("/trainer")({
 });
 
 const MODELS = [
-  { id: "chatgpt", label: "ChatGPT", sub: "OpenAI · GPT-5", accent: "from-emerald-400/40 to-emerald-600/10" },
-  { id: "claude", label: "Claude", sub: "Anthropic · Sonnet", accent: "from-orange-400/40 to-orange-600/10" },
-  { id: "gemini", label: "Gemini", sub: "Google · 2.5 Pro", accent: "from-sky-400/40 to-sky-600/10" },
-  { id: "midjourney", label: "Midjourney", sub: "Image · v6", accent: "from-fuchsia-400/40 to-fuchsia-600/10" },
-  { id: "perplexity", label: "Perplexity", sub: "Research", accent: "from-cyan-400/40 to-cyan-600/10" },
+  { id: "chatgpt", label: "ChatGPT", sub: "Target style · GPT", accent: "from-emerald-400/40 to-emerald-600/10" },
+  { id: "claude", label: "Claude", sub: "Target style · Claude", accent: "from-orange-400/40 to-orange-600/10" },
+  { id: "gemini", label: "Gemini", sub: "Target style · Gemini 3.1", accent: "from-sky-400/40 to-sky-600/10" },
+  { id: "midjourney", label: "Midjourney", sub: "Target style · Image", accent: "from-fuchsia-400/40 to-fuchsia-600/10" },
+  { id: "perplexity", label: "Perplexity", sub: "Target style · Research", accent: "from-cyan-400/40 to-cyan-600/10" },
 ];
 
 type Result = { improved: string; tips: string[] };
@@ -128,9 +128,10 @@ function Trainer() {
           </div>
 
           <div className="p-6 md:p-8 border-b border-white/10">
-            <label className="block text-[10px] font-mono uppercase tracking-[0.25em] text-zinc-500 mb-4">
-              02 / Target AI
+            <label className="block text-[10px] font-mono uppercase tracking-[0.25em] text-zinc-500 mb-2">
+              02 / Target AI style
             </label>
+            <p className="mb-4 text-xs text-zinc-600">Powered by Gemini 3.1 Flash-Lite · tuned for your target model</p>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-2">
               {MODELS.map((m) => {
                 const active = model === m.id;
