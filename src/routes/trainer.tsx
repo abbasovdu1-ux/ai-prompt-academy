@@ -119,7 +119,7 @@ function Trainer() {
       <section className="relative px-6 md:px-10 max-w-6xl mx-auto pb-32">
         <form onSubmit={handleSubmit} className="border border-white/10 bg-white/[0.02] backdrop-blur-sm">
           <div className="p-6 md:p-8 border-b border-white/10">
-            <label className="block text-sm font-mono uppercase tracking-[0.2em] text-zinc-200 mb-4">
+            <label className="block text-xs font-mono uppercase tracking-[0.2em] text-zinc-300 mb-4">
               01 / Your task
             </label>
             <textarea
@@ -132,11 +132,11 @@ function Trainer() {
           </div>
 
           <div className="p-6 md:p-8 border-b border-white/10">
-            <label className="block text-sm font-mono uppercase tracking-[0.2em] text-zinc-200 mb-2">
+            <label className="block text-xs font-mono uppercase tracking-[0.2em] text-zinc-300 mb-2">
               02 / Target model
             </label>
             <p className="mb-5 text-sm text-zinc-400">Choose the AI you want the prompt to work with.</p>
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-2">
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
               {MODELS.map((m) => {
                 const active = model === m.id;
                 return (
@@ -144,10 +144,10 @@ function Trainer() {
                     key={m.id}
                     type="button"
                     onClick={() => setModel(m.id)}
-                    className={`relative overflow-hidden text-left p-4 border transition-all ${
+                    className={`group relative min-h-[88px] overflow-hidden rounded-xl border p-4 text-left transition-all duration-300 ${
                       active
-                        ? "border-white bg-white text-black"
-                        : "border-white/10 hover:border-white/30 text-white"
+                        ? "border-white/80 bg-white text-black shadow-[0_0_28px_rgba(255,255,255,0.08)]"
+                        : "border-white/10 bg-white/[0.025] text-white hover:-translate-y-0.5 hover:border-white/35 hover:bg-white/[0.06]"
                     }`}
                   >
                     {active && (
@@ -155,8 +155,11 @@ function Trainer() {
                         className={`absolute inset-0 bg-gradient-to-br ${m.accent} pointer-events-none opacity-30`}
                       />
                     )}
-                    <div className="relative">
-                      <div className="text-sm font-semibold">{m.label}</div>
+                    <div className="relative flex h-full flex-col justify-between gap-5">
+                      <div className={`flex size-7 items-center justify-center rounded-lg text-[10px] font-mono font-semibold ${active ? "bg-black/10 text-black" : "bg-white/10 text-zinc-300"}`}>
+                        {m.label.slice(0, 2).toUpperCase()}
+                      </div>
+                      <div className="text-sm font-medium tracking-tight">{m.label}</div>
                     </div>
                   </button>
                 );
